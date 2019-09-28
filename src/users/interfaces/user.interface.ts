@@ -1,3 +1,4 @@
+import { Document } from 'mongoose';
 
 export interface userInterface extends Document{
     readonly userName: String;
