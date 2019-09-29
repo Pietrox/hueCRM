@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose';
+import 'dotenv/config';
 
 export const databaseProvider = [
     {
