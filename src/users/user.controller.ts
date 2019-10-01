@@ -1,4 +1,4 @@
-import {Body, Controller, Post, Get, Param, Put, Delete, UsePipes, ValidationPipe, HttpStatus} from '@nestjs/common';
+import {Body, Controller, Post, Get, Param, Put, Delete, UsePipes, ValidationPipe, HttpStatus, Query} from '@nestjs/common';
 import {ApiEndpointTitlesEnum} from '../shared/enums/api-endpoint-titles.enum';
 import {ApiParamsEnum} from '../shared/enums/api-params.enum';
 import {ApiPathsEnum} from '../shared/enums/api-paths.enum';
@@ -16,7 +16,7 @@ export class UserController {
     @ApiOperation({title: ApiEndpointTitlesEnum.userPost})
     @ApiResponse({status: HttpStatus.OK, type: UserDto})
     @UsePipes(new ValidationPipe({transform: true}))
-        async create(@Body() userDto: UserDto) {
+        async create(@Query() userDto: UserDto) {
         return this.userService.create(userDto);
     }
 
@@ -40,7 +40,7 @@ export class UserController {
     @ApiOperation({title: ApiEndpointTitlesEnum.userPut})
     @ApiResponse({status: HttpStatus.OK, type: UserDto})
     @UsePipes(new ValidationPipe({transform: true}))
-        async update(@Param(ApiParamsEnum.id) id: string, @Body() userDto: UserDto) {
+        async update(@Param(ApiParamsEnum.id) id: string, @Query() userDto: UserDto) {
         return this.userService.update(id, userDto);
     }
 
@@ -48,7 +48,7 @@ export class UserController {
     @ApiOperation({title: ApiEndpointTitlesEnum.userDelete})
     @ApiResponse({status: HttpStatus.OK, type: UserDto})
     @UsePipes(new ValidationPipe({transform: true}))
-        async delete(@Param(ApiParamsEnum.id) id: string, @Body() userDto: UserDto) {
+        async delete(@Param(ApiParamsEnum.id) id: string, @Query() userDto: UserDto) {
         return this.userService.delete(id, userDto);
     }
 }

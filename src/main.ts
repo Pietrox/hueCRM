@@ -1,3 +1,4 @@
+import {ValidationPipe} from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import {NestFastifyApplication, FastifyAdapter} from '@nestjs/platform-fastify';
@@ -35,6 +36,11 @@ async function bootstrap() {
     });
   }
   app.setGlobalPrefix('/api');
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist: false,
+    transform: true,
+  }));
+  app.enableCors();
   await app.listen(AppModule.port);
 }
 bootstrap();
