@@ -12,11 +12,10 @@
 NestJS and Angular based CRM for web based companies and enterprises.
 
 ## Installation
-
-```bash
-TO DO
-```
-
+``
+Rename .env.dev.example to .env to initiate development mode
+Make sure you have correct config to the database and port according to your machine.
+``
 ## Running the app
 
 ```bash
