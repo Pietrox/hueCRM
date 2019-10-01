@@ -28,7 +28,7 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
-
+To access swagger with default development config go to http://localhost:3000/api/docs
 
 ## Support
 
