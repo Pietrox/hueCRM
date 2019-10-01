@@ -13,6 +13,11 @@ NestJS and Angular based CRM for web based companies and enterprises.
 
 ## Installation
 
+```bash
+$ git clone https://github.com/hueSoft/hueCRM.git
+$ npm install
+```
+
 Rename .env.dev.example to .env to initiate development mode
 Make sure you have correct config to the database and port according to your machine.
 
