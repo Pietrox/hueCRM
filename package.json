@@ -25,11 +25,16 @@
     "@nestjs/mongoose": "^6.1.2",
     "@nestjs/platform-express": "^6.7.2",
     "@nestjs/platform-fastify": "^6.7.2",
+    "@nestjs/swagger": "^3.1.0",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.10.1",
     "dotenv": "^8.1.0",
+    "fastify-swagger": "^2.4.0",
     "mongoose": "^5.7.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
-    "rxjs": "^6.5.3"
+    "rxjs": "^6.5.3",
+    "swagger": "^0.7.5"
   },
   "devDependencies": {
     "@nestjs/cli": "^6.9.0",
