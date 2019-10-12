@@ -22,14 +22,12 @@ Make sure you have correct config to the database and port according to your mac
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+# app
+ng serve api /// will run on port 4200
+# api
+ng serve api /// will run on port 3000
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# only development mode supported for now
 ```
 To access swagger with default development config go to http://localhost:3000/api/docs
 
