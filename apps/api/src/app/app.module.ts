@@ -5,6 +5,7 @@ import {UserModule} from '../users/user.module';
 import {ApplicationController} from './app.controller';
 import {ApplicationService} from './app.service';
 
+
 @Module({
   imports: [UserModule, SharedModule],
   controllers: [ApplicationController],
