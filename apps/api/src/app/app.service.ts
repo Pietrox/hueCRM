@@ -3,7 +3,7 @@ import {Injectable} from '@nestjs/common';
 
 @Injectable()
 export class ApplicationService {
-	static getData(): Message {
+	getData(): Message {
 		return {message: 'Welcome to api!'};
 	}
 }
