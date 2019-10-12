@@ -19,6 +19,15 @@
     },
     "api-interfaces": {
       "tags": []
+    },
+    "dto": {
+      "tags": []
+    },
+    "schemas": {
+      "tags": []
+    },
+    "enums": {
+      "tags": []
     }
   }
 }

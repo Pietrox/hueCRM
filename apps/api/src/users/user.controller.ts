@@ -1,19 +1,18 @@
-import {Controller, Delete, Get, HttpStatus, Param, Post, Put, Query, UsePipes, ValidationPipe} from '@nestjs/common';
+import {LoginDto, UserDto} from '@hue-crm/dto';
+import {apiEndpointTitles, apiParams, apiPaths} from '@hue-crm/enums';
+import {Controller, Delete, Get, HttpStatus, Post, Put, Query, UseFilters, UsePipes, ValidationPipe} from '@nestjs/common';
 import {ApiOperation, ApiResponse, ApiUseTags} from '@nestjs/swagger';
-import {ApiEndpointTitlesEnum} from '../shared/enums/api-endpoint-titles.enum';
-import {ApiParamsEnum} from '../shared/enums/api-params.enum';
-import {ApiPathsEnum} from '../shared/enums/api-paths.enum';
-import {UserDto} from './dto/user.dto';
-import {UserInterface} from './interfaces/user.interface';
+import {MongoExceptionFilter} from '../shared/filters/mongo.filter';
 import {UserService} from './user.service';
 
-@Controller(ApiPathsEnum.user)
-@ApiUseTags(ApiEndpointTitlesEnum.user)
+@Controller(apiPaths.user)
+@ApiUseTags(apiEndpointTitles.user)
 export class UserController {
     constructor(private readonly userService: UserService) {}
 
     @Post()
-    @ApiOperation({title: ApiEndpointTitlesEnum.userPost})
+    @UseFilters(MongoExceptionFilter)
+    @ApiOperation({title: apiEndpointTitles.userPost})
     @ApiResponse({status: HttpStatus.OK, type: UserDto})
     @UsePipes(new ValidationPipe({transform: true}))
         async create(@Query() userDto: UserDto) {
@@ -21,34 +20,47 @@ export class UserController {
     }
 
     @Get()
-    @ApiOperation({title: ApiEndpointTitlesEnum.userGet})
+    @UseFilters(MongoExceptionFilter)
+    @ApiOperation({title: apiEndpointTitles.userGet})
     @ApiResponse({status: HttpStatus.OK, type: UserDto})
     @UsePipes(new ValidationPipe({transform: true}))
-        async findAll(): Promise<UserInterface[]> {
+    async findAll(): Promise<UserDto[]> {
         return this.userService.findAll();
     }
-
-    @Get(ApiPathsEnum.id)
-    @ApiOperation({title: ApiEndpointTitlesEnum.userGetById})
+    
+    @Get(apiPaths.id)
+    @UseFilters(MongoExceptionFilter)
+    @ApiOperation({title: apiEndpointTitles.userGetById})
     @ApiResponse({status: HttpStatus.OK, type: UserDto})
     @UsePipes(new ValidationPipe({transform: true}))
-        async find(@Param(ApiParamsEnum.id) id: string) {
+    async find(@Query(apiParams.id) id: string) {
         return this.userService.find(id);
     }
-
-    @Put(ApiPathsEnum.id)
-    @ApiOperation({title: ApiEndpointTitlesEnum.userPut})
+    
+    @Get(apiPaths.username)
+    @UseFilters(MongoExceptionFilter)
+    @ApiOperation({title: apiEndpointTitles.userGetByUserName})
+    @ApiResponse({status: HttpStatus.OK, type: LoginDto})
+    @UsePipes(new ValidationPipe({transform: true}))
+    async findOne(@Query(apiParams.username) username: LoginDto) {
+        return this.userService.findByUserName(username);
+    }
+    
+    @Put(apiPaths.id)
+    @UseFilters(MongoExceptionFilter)
+    @ApiOperation({title: apiEndpointTitles.userPut})
     @ApiResponse({status: HttpStatus.OK, type: UserDto})
     @UsePipes(new ValidationPipe({transform: true}))
-        async update(@Param(ApiParamsEnum.id) id: string, @Query() userDto: UserDto) {
+    async update(@Query(apiParams.id) id: string, @Query() userDto: UserDto) {
         return this.userService.update(id, userDto);
     }
-
-    @Delete(ApiPathsEnum.id)
-    @ApiOperation({title: ApiEndpointTitlesEnum.userDelete})
+    
+    @Delete(apiPaths.id)
+    @UseFilters(MongoExceptionFilter)
+    @ApiOperation({title: apiEndpointTitles.userDelete})
     @ApiResponse({status: HttpStatus.OK, type: UserDto})
     @UsePipes(new ValidationPipe({transform: true}))
-        async delete(@Param(ApiParamsEnum.id) id: string, @Query() userDto: UserDto) {
-        return this.userService.delete(id, userDto);
+    async delete(@Query(apiParams.id) id: string, @Query() userDto: UserDto) {
+        return this.userService.delete(id);
     }
 }

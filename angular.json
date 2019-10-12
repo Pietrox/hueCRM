@@ -221,6 +221,90 @@
           }
         }
       }
+    },
+    "dto": {
+      "root": "libs/dto",
+      "sourceRoot": "libs/dto/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/dto/tsconfig.lib.json",
+              "libs/dto/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/dto/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/dto/jest.config.js",
+            "tsConfig": "libs/dto/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "schemas": {
+      "root": "libs/schemas",
+      "sourceRoot": "libs/schemas/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/schemas/tsconfig.lib.json",
+              "libs/schemas/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/schemas/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/schemas/jest.config.js",
+            "tsConfig": "libs/schemas/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "enums": {
+      "root": "libs/enums",
+      "sourceRoot": "libs/enums/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/enums/tsconfig.lib.json",
+              "libs/enums/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/enums/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/enums/jest.config.js",
+            "tsConfig": "libs/enums/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "cli": {

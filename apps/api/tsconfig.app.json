@@ -11,5 +11,14 @@
   ],
   "include": [
     "**/*.ts"
+  ],
+  "@hue-crm/enums": [
+    "./../../libs/enums/src/index"
+  ],
+  "@hue-crm/dto": [
+    "./../../libs/dto/src/index"
+  ],
+  "@hue-crm/schemas": [
+    "./../../libs/schemas/src/index"
   ]
 }
