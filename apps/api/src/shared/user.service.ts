@@ -40,6 +40,11 @@ export class UserService {
 		
 	}
 	
+	async findByPayload(payload: any) {
+		const {username} = payload;
+		return this.userModel.findOne(username);
+	}
+	
 	sanitizeUser(user: User) {
 		const sanitized = user.toObject();
 		delete sanitized['password'];

@@ -1,6 +1,5 @@
 import {Injectable} from '@nestjs/common';
 import {sign} from 'jsonwebtoken';
-import {ApplicationModule} from '../app.module';
 import {UserService} from '../shared/user.service';
 
 
@@ -10,11 +9,11 @@ export class AuthenticationService {
 	}
 	
 	async signPayload(payload: any) {
-		return sign(payload, 'secretKey', {expiresIn: ApplicationModule.payloadSessionTime});
+		return sign(payload, 'secretKey', {expiresIn: process.env.PAYLOAD_SESSION_TIME});
 	}
 	
-	// async validateUser(payload: any){
-	// 	return await this.userService.findByPayload(payload)
-	//
-	// }
+	async validateUser(payload: any) {
+		return await this.userService.findByPayload(payload);
+		
+	}
 }

@@ -1,6 +1,5 @@
 import {Module} from '@nestjs/common';
 import {MongooseModule} from '@nestjs/mongoose';
-import {ApplicationController} from './app.controller';
 import {ApplicationService} from './app.service';
 import {AuthenticationModule} from './authentication/authentication.module';
 import {ConfigurationService} from './shared/configuration.service';
@@ -12,7 +11,7 @@ import {SharedModule} from './shared/shared.module';
     MongooseModule.forRoot(process.env.DATABASE),
     AuthenticationModule,
     SharedModule],
-  controllers: [ApplicationController],
+  controllers: [],
   providers: [ApplicationService],
 })
 export class ApplicationModule {
