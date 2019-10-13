@@ -306,9 +306,9 @@
         }
       }
     },
-    "models": {
-      "root": "libs/models",
-      "sourceRoot": "libs/models/src",
+    "mongoose-models": {
+      "root": "libs/mongoose-models",
+      "sourceRoot": "libs/mongoose-models/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -316,20 +316,20 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/models/tsconfig.lib.json",
-              "libs/models/tsconfig.spec.json"
+              "libs/mongoose-models/tsconfig.lib.json",
+              "libs/mongoose-models/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!libs/models/**"
+              "!libs/mongoose-models/**"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/models/jest.config.js",
-            "tsConfig": "libs/models/tsconfig.spec.json"
+            "jestConfig": "libs/mongoose-models/jest.config.js",
+            "tsConfig": "libs/mongoose-models/tsconfig.spec.json"
           }
         }
       }

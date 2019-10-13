@@ -29,7 +29,7 @@
     "enums": {
       "tags": []
     },
-    "models": {
+    "mongoose-models": {
       "tags": []
     }
   }

@@ -1,14 +1,15 @@
-import {LoginDto, RegisterDto} from '@hue-crm/dto';
-import {UserModel} from '@hue-crm/models';
+import {LoginDto, RegisterDto, UserDto} from '@hue-crm/dto';
+import {User} from '@hue-crm/mongoose-models';
 import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
+import {ApiResponse} from '@nestjs/swagger';
+import * as bcrypt from 'bcrypt';
 import {Model} from 'mongoose';
 
-const bcrypt = require('bcrypt');
-
 @Injectable()
+@ApiResponse({status: HttpStatus.OK, type: UserDto})
 export class UserService {
-	constructor(@InjectModel('User') private userModel: Model<UserModel>) {
+	constructor(@InjectModel('User') private userModel: Model<User>) {
 	}
 	
 	
@@ -32,14 +33,14 @@ export class UserService {
 		}
 		
 		if (await bcrypt.compare(password, user.password)) {
-			return this.sanitizeUser(UserModel);
+			return this.sanitizeUser(user);
 		} else {
 			throw new HttpException('Invalid credentials', HttpStatus.UNAUTHORIZED);
 		}
 		
 	}
 	
-	sanitizeUser(user: UserModel) {
+	sanitizeUser(user: User) {
 		const sanitized = user.toObject();
 		delete sanitized['password'];
 		return sanitized;

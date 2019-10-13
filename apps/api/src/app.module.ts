@@ -1,12 +1,17 @@
 import {Module} from '@nestjs/common';
-import {ConfigurationService} from '../shared/configuration.service';
-import {SharedModule} from '../shared/shared.module';
+import {MongooseModule} from '@nestjs/mongoose';
 import {ApplicationController} from './app.controller';
 import {ApplicationService} from './app.service';
+import {AuthenticationModule} from './authentication/authentication.module';
+import {ConfigurationService} from './shared/configuration.service';
+import {SharedModule} from './shared/shared.module';
 
 
 @Module({
-  imports: [SharedModule],
+  imports: [
+    MongooseModule.forRoot(process.env.DATABASE),
+    AuthenticationModule,
+    SharedModule],
   controllers: [ApplicationController],
   providers: [ApplicationService],
 })

@@ -13,15 +13,15 @@
     "**/*.ts"
   ],
   "@hue-crm/enums": [
-    "./../../libs/enums/src/index"
+    "../../libs/enums/src/index"
   ],
   "@hue-crm/dto": [
-    "./../../libs/dto/src/index"
+    "../../libs/dto/src/index"
   ],
   "@hue-crm/schemas": [
-    "./../../libs/schemas/src/index"
+    "../../libs/schemas/src/index"
   ],
-  "@hue-crm/models": [
-    "./../../libs/models/src/index"
+  "@hue-crm/mongoose-models": [
+    "../../libs/mongoose-models/src/index"
   ]
 }
