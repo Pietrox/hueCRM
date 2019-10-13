@@ -35,6 +35,9 @@
       ],
       "@hue-crm/enums": [
         "libs/enums/src/index.ts"
+      ],
+      "@hue-crm/models": [
+        "libs/models/src/index.ts"
       ]
     }
   },

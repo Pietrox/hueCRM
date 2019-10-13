@@ -20,5 +20,8 @@
   ],
   "@hue-crm/schemas": [
     "./../../libs/schemas/src/index"
+  ],
+  "@hue-crm/models": [
+    "./../../libs/models/src/index"
   ]
 }

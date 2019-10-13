@@ -1,13 +1,12 @@
 import {Module} from '@nestjs/common';
-import {ConfigurationService} from '../shared/configuration/configuration.service';
+import {ConfigurationService} from '../shared/configuration.service';
 import {SharedModule} from '../shared/shared.module';
-import {UserModule} from '../users/user.module';
 import {ApplicationController} from './app.controller';
 import {ApplicationService} from './app.service';
 
 
 @Module({
-  imports: [UserModule, SharedModule],
+  imports: [SharedModule],
   controllers: [ApplicationController],
   providers: [ApplicationService],
 })
