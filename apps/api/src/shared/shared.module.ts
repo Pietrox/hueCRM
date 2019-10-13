@@ -1,9 +1,13 @@
-import {HttpModule, Module} from '@nestjs/common';
-import {ConfigurationService} from './configuration/configuration.service';
+import {UserSchema} from '@hue-crm/schemas';
+import {Module} from '@nestjs/common';
+import {MongooseModule} from '@nestjs/mongoose';
+import {ConfigurationService} from './configuration.service';
+import {UserService} from './user.service';
+
 
 @Module({
-  imports: [HttpModule],
-  exports: [ConfigurationService],
-  providers: [ConfigurationService],
+	imports: [MongooseModule.forFeature([{name: 'User', schema: UserSchema}])],
+  providers: [ConfigurationService, UserService],
+	exports: [ConfigurationService, UserService]
 })
 export class SharedModule {}

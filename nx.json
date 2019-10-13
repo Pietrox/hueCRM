@@ -19,6 +19,18 @@
     },
     "api-interfaces": {
       "tags": []
+    },
+    "dto": {
+      "tags": []
+    },
+    "schemas": {
+      "tags": []
+    },
+    "enums": {
+      "tags": []
+    },
+    "mongoose-models": {
+      "tags": []
     }
   }
 }

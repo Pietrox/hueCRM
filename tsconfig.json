@@ -23,6 +23,18 @@
     "paths": {
       "@hue-crm/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
+      ],
+      "@hue-crm/dto": [
+        "libs/dto/src/index.ts"
+      ],
+      "@hue-crm/schemas": [
+        "libs/schemas/src/index.ts"
+      ],
+      "@hue-crm/enums": [
+        "libs/enums/src/index.ts"
+      ],
+      "@hue-crm/mongoose-models": [
+        "libs/mongoose-models/src/index.ts"
       ]
     }
   },
