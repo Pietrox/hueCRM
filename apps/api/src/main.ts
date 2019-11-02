@@ -11,12 +11,12 @@ async function bootstrap() {
   if (devMode === true) {
     const swaggerOptions = new DocumentBuilder()
         .setTitle('hueCRM Documentation')
-        .setDescription('Below You can test out the backend api and read the description of all enpoints and it`s examples')
-        .setVersion('0.0.1')
-        .setHost(ApplicationModule.host)
-        .setSchemes(ApplicationModule.devMode ? 'http' : 'https')
-        .setBasePath('/api')
-        .addBearerAuth('Authorization', 'header')
+        .setDescription('Below You can test out the backend api and read the description of all endpoints and it`s examples')
+        .setVersion('0.0.8')
+        .setContact('Piotr Szymanowski', 'https://github.com/Pietrox', 'szymanowski.p@gmail.com')
+        .setLicense('MIT License', 'https://github.com/hueSoft/hueCRM')
+        .addServer('/api', 'Main Api')
+        .addBearerAuth()
         .build();
     const swaggerDoc = SwaggerModule.createDocument(app, swaggerOptions);
     SwaggerModule.setup('/api/docs', app, swaggerDoc, {
