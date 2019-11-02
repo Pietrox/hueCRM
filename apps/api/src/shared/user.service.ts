@@ -1,15 +1,13 @@
-import {DeleteUserDto, LoginDto, RegisterDto, UserDto} from '@hue-crm/dto';
-import {User} from '@hue-crm/mongoose-models';
+import {DeleteUserDto, LoginDto, RegisterDto} from '@hue-crm/dto';
+import {UserModel} from '@hue-crm/mongoose-models';
 import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
-import {ApiResponse} from '@nestjs/swagger';
 import * as bcrypt from 'bcrypt';
 import {Model} from 'mongoose';
 
 @Injectable()
-@ApiResponse({status: HttpStatus.OK, type: UserDto})
 export class UserService {
-	constructor(@InjectModel('User') private userModel: Model<User>) {
+	constructor(@InjectModel('User') private userModel: Model<UserModel>) {
 	}
 	
 	
@@ -53,7 +51,7 @@ export class UserService {
 		return this.userModel.findOne(username);
 	}
 	
-	sanitizeUser(user: User) {
+	sanitizeUser(user: UserModel) {
 		const sanitized = user.toObject();
 		delete sanitized['password'];
 		return sanitized;

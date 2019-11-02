@@ -1,1 +1,2 @@
-export * from './lib/user.model';
+export {UserModel} from './lib/user.model';
+export {LeadsModel} from './lib/leads.model';

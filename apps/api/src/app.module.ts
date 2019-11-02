@@ -3,6 +3,7 @@ import {MongooseModule} from '@nestjs/mongoose';
 import {ApplicationController} from './app.controller';
 import {ApplicationService} from './app.service';
 import {AuthenticationModule} from './authentication/authentication.module';
+import {LeadsModule} from './modules/leads/leads.module';
 import {ConfigurationService} from './shared/configuration.service';
 import {SharedModule} from './shared/shared.module';
 
@@ -10,8 +11,9 @@ import {SharedModule} from './shared/shared.module';
 @Module({
   imports: [
     MongooseModule.forRoot(process.env.DATABASE),
-    AuthenticationModule,
-    SharedModule],
+	  AuthenticationModule, SharedModule,
+	  LeadsModule
+  ],
   controllers: [ApplicationController],
   providers: [ApplicationService],
 })
