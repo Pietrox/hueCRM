@@ -3,4 +3,5 @@ export enum UserParamDescriptionEnum {
     email = 'Email of the user',
     password = 'Duh?',
     role = 'System role of the user',
+	token = 'Auth Token'
 }

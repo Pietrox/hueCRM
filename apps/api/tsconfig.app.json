@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "types": [
-      "node"
+      "node",
+      "jest"
     ]
   },
   "exclude": [
@@ -23,5 +24,8 @@
   ],
   "@hue-crm/mongoose-models": [
     "../../libs/mongoose-models/src/index"
+  ],
+  "@hue-crm/utilities": [
+    "../../libs/utilities/src/index"
   ]
 }
