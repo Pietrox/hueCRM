@@ -1,8 +1,11 @@
 import {DeleteUserDto, LoginDto, RegisterDto, TokenDto, UserDto,} from '@hue-crm/dto';
 import {apiEndpointTitles, apiPaths, apiTags} from '@hue-crm/enums';
+import {User} from '@hue-crm/utilities';
 import {Controller, Get, HttpStatus, Post, Query, UseGuards, UsePipes, ValidationPipe} from '@nestjs/common';
 import {AuthGuard} from '@nestjs/passport';
 import {ApiOperation, ApiResponse, ApiUseTags} from '@nestjs/swagger';
+
+import {AdminGuard} from '../guards/admin.guard';
 import {UserService} from '../shared/user.service';
 import {AuthenticationService} from './authentication.service';
 
@@ -16,16 +19,17 @@ export class AuthenticationController {
 	}
 	
 	@Get(apiPaths.allUsers)
-	@UseGuards(AuthGuard('jwt'))
-	@ApiOperation({title: apiEndpointTitles.userAll})
+	@UseGuards(AuthGuard('jwt'), AdminGuard)
+	@ApiOperation({summary: apiEndpointTitles.userAll})
 	@ApiResponse({status: HttpStatus.OK, type: UserDto})
 	@UsePipes(new ValidationPipe({transform: true}))
-	async findAll(@Query() user: TokenDto) {
+	async findAll(@User() user: TokenDto) {
+		console.log(user);
 		return await this.userService.findAll();
 	}
 	
 	@Post(apiPaths.login)
-	@ApiOperation({title: apiEndpointTitles.userLogin})
+	@ApiOperation({summary: apiEndpointTitles.userLogin})
 	@ApiResponse({status: HttpStatus.OK, type: UserDto})
 	@UsePipes(new ValidationPipe({transform: true}))
 	async login(@Query() loginDto: LoginDto) {
@@ -39,7 +43,7 @@ export class AuthenticationController {
 	}
 	
 	@Post(apiPaths.register)
-	@ApiOperation({title: apiEndpointTitles.userRegister})
+	@ApiOperation({summary: apiEndpointTitles.userRegister})
 	@ApiResponse({status: HttpStatus.OK, type: UserDto})
 	@UsePipes(new ValidationPipe({transform: true}))
 	async register(@Query() registerDto: RegisterDto) {
@@ -53,7 +57,7 @@ export class AuthenticationController {
 	}
 	
 	@Post(apiPaths.delete)
-	@ApiOperation({title: apiEndpointTitles.userDelete})
+	@ApiOperation({summary: apiEndpointTitles.userDelete})
 	@ApiResponse({status: HttpStatus.OK, type: DeleteUserDto})
 	@UsePipes(new ValidationPipe({transform: true}))
 	async deleteByLogin(@Query() deleteUserDto: DeleteUserDto) {

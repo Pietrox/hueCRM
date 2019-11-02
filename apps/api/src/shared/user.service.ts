@@ -45,7 +45,7 @@ export class UserService {
 	}
 	
 	findAll(): any {
-		return this.userModel;
+		return this.userModel.find().exec();
 	}
 	
 	async findByPayload(payload: any) {
