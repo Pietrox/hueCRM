@@ -1,4 +1,4 @@
-import {LoginDto, RegisterDto, UserDto} from '@hue-crm/dto';
+import {DeleteUserDto, LoginDto, RegisterDto, UserDto} from '@hue-crm/dto';
 import {User} from '@hue-crm/mongoose-models';
 import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
@@ -38,6 +38,14 @@ export class UserService {
 			throw new HttpException('Invalid credentials', HttpStatus.UNAUTHORIZED);
 		}
 		
+	}
+	
+	async deleteByLogin(deleteUserDto: DeleteUserDto) {
+		await this.userModel.findOneAndDelete(deleteUserDto);
+	}
+	
+	findAll(): any {
+		return this.userModel;
 	}
 	
 	async findByPayload(payload: any) {

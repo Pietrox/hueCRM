@@ -35,6 +35,9 @@
       ],
       "@hue-crm/mongoose-models": [
         "libs/mongoose-models/src/index.ts"
+      ],
+      "@hue-crm/utilities": [
+        "libs/utilities/src/index.ts"
       ]
     }
   },

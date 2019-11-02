@@ -1,4 +1,4 @@
-import {LoginDto, RegisterDto, UserDto} from '@hue-crm/dto';
+import {DeleteUserDto, LoginDto, RegisterDto, TokenDto, UserDto,} from '@hue-crm/dto';
 import {apiEndpointTitles, apiPaths, apiTags} from '@hue-crm/enums';
 import {Controller, Get, HttpStatus, Post, Query, UseGuards, UsePipes, ValidationPipe} from '@nestjs/common';
 import {AuthGuard} from '@nestjs/passport';
@@ -15,10 +15,13 @@ export class AuthenticationController {
 	) {
 	}
 	
-	@Get()
+	@Get(apiPaths.allUsers)
 	@UseGuards(AuthGuard('jwt'))
-	tempAuthentication() {
-		return {auth: 'All ok'};
+	@ApiOperation({title: apiEndpointTitles.userAll})
+	@ApiResponse({status: HttpStatus.OK, type: UserDto})
+	@UsePipes(new ValidationPipe({transform: true}))
+	async findAll(@Query() user: TokenDto) {
+		return await this.userService.findAll();
 	}
 	
 	@Post(apiPaths.login)
@@ -47,5 +50,15 @@ export class AuthenticationController {
 		};
 		const token = await this.authenticationService.signPayload(payload);
 		return {user, token};
+	}
+	
+	@Post(apiPaths.delete)
+	@ApiOperation({title: apiEndpointTitles.userDelete})
+	@ApiResponse({status: HttpStatus.OK, type: DeleteUserDto})
+	@UsePipes(new ValidationPipe({transform: true}))
+	async deleteByLogin(@Query() deleteUserDto: DeleteUserDto) {
+		await this.userService.deleteByLogin(deleteUserDto);
+		return 'User has been deleted';
+		
 	}
 }

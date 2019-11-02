@@ -1,8 +1,11 @@
 export enum ApiPathsEnum {
-    auth = 'auth',
-    login = 'login',
-    register = 'register',
-    user = 'user',
-    id = ':id',
-    username = ':username'
+	api = 'api',
+	auth = 'auth',
+	login = 'login',
+	register = 'register',
+	user = 'user',
+	delete = 'delete',
+	id = ':id',
+	username = ':username',
+	allUsers = 'allUsers'
 }
