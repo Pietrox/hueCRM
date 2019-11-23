@@ -1,9 +1,9 @@
 import {HttpClient} from '@angular/common/http';
 import {Component} from '@angular/core';
-import {Message} from '@hue-crm/api-interfaces';
+import {Message} from '@huecrm/api-interfaces';
 
 @Component({
-	selector: 'hue-crm-root',
+	selector: 'huecrm-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss']
 })

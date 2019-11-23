@@ -10,7 +10,7 @@
       },
       "root": "apps/hue-crm",
       "sourceRoot": "apps/hue-crm/src",
-      "prefix": "hue-crm",
+      "prefix": "huecrm",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -222,34 +222,6 @@
         }
       }
     },
-    "dto": {
-      "root": "libs/dto",
-      "sourceRoot": "libs/dto/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/dto/tsconfig.lib.json",
-              "libs/dto/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/dto/**"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/dto/jest.config.js",
-            "tsConfig": "libs/dto/tsconfig.spec.json"
-          }
-        }
-      }
-    },
     "schemas": {
       "root": "libs/schemas",
       "sourceRoot": "libs/schemas/src",
@@ -274,6 +246,34 @@
           "options": {
             "jestConfig": "libs/schemas/jest.config.js",
             "tsConfig": "libs/schemas/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "dto": {
+      "root": "libs/dto",
+      "sourceRoot": "libs/dto/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/dto/tsconfig.lib.json",
+              "libs/dto/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/dto/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/dto/jest.config.js",
+            "tsConfig": "libs/dto/tsconfig.spec.json"
           }
         }
       }
@@ -306,34 +306,6 @@
         }
       }
     },
-    "mongoose-models": {
-      "root": "libs/mongoose-models",
-      "sourceRoot": "libs/mongoose-models/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/mongoose-models/tsconfig.lib.json",
-              "libs/mongoose-models/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/mongoose-models/**"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/mongoose-models/jest.config.js",
-            "tsConfig": "libs/mongoose-models/tsconfig.spec.json"
-          }
-        }
-      }
-    },
     "utilities": {
       "root": "libs/utilities",
       "sourceRoot": "libs/utilities/src",
@@ -358,6 +330,34 @@
           "options": {
             "jestConfig": "libs/utilities/jest.config.js",
             "tsConfig": "libs/utilities/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "mongoose-models": {
+      "root": "libs/mongoose-models",
+      "sourceRoot": "libs/mongoose-models/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/mongoose-models/tsconfig.lib.json",
+              "libs/mongoose-models/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/mongoose-models/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/mongoose-models/jest.config.js",
+            "tsConfig": "libs/mongoose-models/tsconfig.spec.json"
           }
         }
       }

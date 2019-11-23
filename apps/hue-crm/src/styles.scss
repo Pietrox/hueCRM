@@ -1,7 +1,1 @@
-@import '~@nebular/theme/styles/theming';
-@import '~@nebular/theme/styles/themes/default';
-
-$nb-themes: nb-register-theme((
-        text-basic-color: color-basic-800,
-        text-disabled-color: color-basic-600,
-), default, default);
+/* You can add global styles to this file, and also import other style files */

@@ -1,4 +1,4 @@
-import {UserSchema} from '@hue-crm/schemas';
+import {UserSchema} from '@huecrm/schemas';
 import {Module} from '@nestjs/common';
 import {APP_FILTER, APP_INTERCEPTOR} from '@nestjs/core';
 import {MongooseModule} from '@nestjs/mongoose';

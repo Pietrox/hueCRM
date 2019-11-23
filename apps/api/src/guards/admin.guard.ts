@@ -10,7 +10,7 @@ export class AdminGuard implements CanActivate {
 		const request = context.switchToHttp().getRequest();
 		const user = request.user;
 		
-		if (user && user.admin) {
+		if (user.role === 'Admin') {
 			return true;
 		}
 		throw new HttpException('Insufficient Permission', HttpStatus.UNAUTHORIZED);

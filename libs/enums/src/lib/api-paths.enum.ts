@@ -13,6 +13,7 @@ export enum ApiPathsEnum {
 	createLead = 'createLead',
 	getLeadById = 'getLeadById',
 	updateLeadById = 'updateLeadById',
-	deleteLeadById = 'deleteLeadById'
+	deleteLeadById = 'deleteLeadById',
+	deleteLeadByEmail = 'deleteLeadById'
 	
 }

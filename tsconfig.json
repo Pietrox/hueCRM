@@ -21,23 +21,23 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hue-crm/api-interfaces": [
+      "@huecrm/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
       ],
-      "@hue-crm/dto": [
-        "libs/dto/src/index.ts"
-      ],
-      "@hue-crm/schemas": [
+      "@huecrm/schemas": [
         "libs/schemas/src/index.ts"
       ],
-      "@hue-crm/enums": [
+      "@huecrm/dto": [
+        "libs/dto/src/index.ts"
+      ],
+      "@huecrm/enums": [
         "libs/enums/src/index.ts"
       ],
-      "@hue-crm/mongoose-models": [
-        "libs/mongoose-models/src/index.ts"
-      ],
-      "@hue-crm/utilities": [
+      "@huecrm/utilities": [
         "libs/utilities/src/index.ts"
+      ],
+      "@huecrm/mongoose-models": [
+        "libs/mongoose-models/src/index.ts"
       ]
     }
   },

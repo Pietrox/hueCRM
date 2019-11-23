@@ -9,7 +9,7 @@ export class AuthenticationService {
 	}
 	
 	async signPayload(payload: any) {
-		return sign(payload, 'secretKey', {expiresIn: process.env.PAYLOAD_SESSION_TIME});
+		return sign(payload, process.env.AUTH_TOKEN, {expiresIn: process.env.PAYLOAD_SESSION_TIME});
 	}
 	
 	async validateUser(payload: any) {

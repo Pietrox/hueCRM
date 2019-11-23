@@ -1,4 +1,4 @@
-import {LeadsSchema} from '@hue-crm/schemas';
+import {LeadsSchema} from '@huecrm/schemas';
 import {Module} from '@nestjs/common';
 import {MongooseModule} from '@nestjs/mongoose';
 import {SharedModule} from '../../shared/shared.module';

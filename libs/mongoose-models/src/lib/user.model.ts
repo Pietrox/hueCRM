@@ -5,6 +5,6 @@ export interface UserModel extends Document {
 	email: string;
 	readonly password: string;
 	role: string
-	created: Date;
+	created: string;
 	
 }

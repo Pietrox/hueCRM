@@ -1,22 +1,22 @@
-import {leadsParamExample, leadsParams} from '@hue-crm/enums';
-import {ApiPropertyOptional} from '@nestjs/swagger';
+import {leadsParamExample} from '@huecrm/enums';
+import {ApiModelPropertyOptional} from '@nestjs/swagger';
 import {IsString} from 'class-validator';
 
 export class LeadsUpdateDto {
 	
-	@ApiPropertyOptional({name: leadsParams.name, enum: [leadsParamExample.name]})
+	@ApiModelPropertyOptional({description: leadsParamExample.name})
 	@IsString()
 	name: string;
-	@ApiPropertyOptional({name: leadsParams.email, enum: [leadsParamExample.email]})
+	@ApiModelPropertyOptional({description: leadsParamExample.email})
 	@IsString()
 	email: string;
-	@ApiPropertyOptional({name: leadsParams.address, enum: [leadsParamExample.address]})
+	@ApiModelPropertyOptional({description: leadsParamExample.address})
 	@IsString()
 	address: string;
-	@ApiPropertyOptional({name: leadsParams.phone, enum: [leadsParamExample.phone]})
+	@ApiModelPropertyOptional({description: leadsParamExample.phone})
 	@IsString()
 	phone: string;
-	@ApiPropertyOptional({name: leadsParams.owner, enum: [leadsParamExample.owner]})
+	@ApiModelPropertyOptional({description: leadsParamExample.owner})
 	@IsString()
 	owner: string;
 }

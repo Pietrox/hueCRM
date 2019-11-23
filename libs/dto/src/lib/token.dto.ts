@@ -1,15 +1,15 @@
-import {userParamExample, userParams} from '@hue-crm/enums';
-import {ApiProperty} from '@nestjs/swagger';
+import {userParamExample} from '@huecrm/enums';
+import {ApiModelProperty} from '@nestjs/swagger';
 import {Type} from 'class-transformer';
 import {IsNotEmpty, IsString} from 'class-validator';
 
 export class TokenDto {
-	@ApiProperty({name: userParams.token, enum: [userParamExample.token]})
+	@ApiModelProperty({description: userParamExample.token})
 	@IsNotEmpty()
 	@IsString()
 	@Type(() => String)
 	token: string;
-	@ApiProperty({name: userParams.role, enum: [userParamExample.role]})
+	@ApiModelProperty({description: userParamExample.role})
 	@IsNotEmpty()
 	@IsString()
 	@Type(() => String)

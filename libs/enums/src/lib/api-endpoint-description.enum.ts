@@ -1,4 +1,4 @@
-export enum ApiEndpointTitlesEnum {
+export enum ApiEndpointDescriptionEnum {
     user = 'Users Endpoint',
     userLogin = 'Login For Users',
     userRegister = 'Register User',

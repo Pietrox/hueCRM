@@ -5,6 +5,6 @@ export interface LeadsModel extends Document {
 	email: string;
 	address: string;
 	phone: string;
-	created: Date;
+	created: string;
 	owner: string;
 }
