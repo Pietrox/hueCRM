@@ -1,15 +1,13 @@
-import {DeleteUserDto, LoginDto, RegisterDto, UserDto} from '@hue-crm/dto';
-import {User} from '@hue-crm/mongoose-models';
+import {DeleteUserDto, LoginDto, RegisterDto} from '@huecrm/dto';
+import {UserModel} from '@huecrm/mongoose-models';
 import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
-import {ApiResponse} from '@nestjs/swagger';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import {Model} from 'mongoose';
 
 @Injectable()
-@ApiResponse({status: HttpStatus.OK, type: UserDto})
 export class UserService {
-	constructor(@InjectModel('User') private userModel: Model<User>) {
+	constructor(@InjectModel('User') private userModel: Model<UserModel>) {
 	}
 	
 	
@@ -29,7 +27,7 @@ export class UserService {
 		const {username, password} = loginDto;
 		const user = await this.userModel.findOne({username});
 		if (!user) {
-			throw new HttpException('Invalid credentials', HttpStatus.UNAUTHORIZED);
+			throw new HttpException('Invalid username', HttpStatus.UNAUTHORIZED);
 		}
 		
 		if (await bcrypt.compare(password, user.password)) {
@@ -50,10 +48,10 @@ export class UserService {
 	
 	async findByPayload(payload: any) {
 		const {username} = payload;
-		return this.userModel.findOne(username);
+		return this.userModel.findOne({username});
 	}
 	
-	sanitizeUser(user: User) {
+	sanitizeUser(user: UserModel) {
 		const sanitized = user.toObject();
 		delete sanitized['password'];
 		return sanitized;

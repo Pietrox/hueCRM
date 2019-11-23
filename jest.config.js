@@ -1,6 +1,4 @@
-
 module.exports = {
-    setupFiles: ["dotenv/config"],
     testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
     transform: {
         '^.+\\.(ts|js|html)$': 'ts-jest'
@@ -8,6 +6,5 @@ module.exports = {
     resolver: '@nrwl/jest/plugins/resolver',
     moduleFileExtensions: ['ts', 'js', 'html'],
     coverageReporters: ['html'],
-    testEnvironment: 'node',
     passWithNoTests: true
 };

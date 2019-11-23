@@ -7,7 +7,7 @@
 
 ## Description
 
-NestJS and Angular based CRM for web based companies and enterprises.
+Online CRM project for web based business. Based on Nx workspace, Angular front-end and NestJS backend.
 
 ## Installation
 

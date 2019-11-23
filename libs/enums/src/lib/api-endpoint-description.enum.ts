@@ -1,4 +1,4 @@
-export enum ApiEndpointTitlesEnum {
+export enum ApiEndpointDescriptionEnum {
     user = 'Users Endpoint',
     userLogin = 'Login For Users',
     userRegister = 'Register User',
@@ -8,5 +8,10 @@ export enum ApiEndpointTitlesEnum {
     userGetById = 'Get User by Id',
     userGetByUserName = 'Get User by UserName',
     userPut = 'Update User',
-    userDelete = 'Delete User'
+    userDelete = 'Delete User',
+    leadGetAll = 'Get All Leads',
+    leadCreate = 'Create Lead',
+    leadGetById = 'Get Lead By Id',
+    leadUpdateById = 'Lead Update By Id',
+    leadDelete = 'Delete Lead'
 }

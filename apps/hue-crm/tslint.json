@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "hueCrm",
+      "huecrm",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "hue-crm",
+      "huecrm",
       "kebab-case"
     ]
   }

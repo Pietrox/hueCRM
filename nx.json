@@ -1,5 +1,5 @@
 {
-  "npmScope": "hue-crm",
+  "npmScope": "huecrm",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -20,19 +20,19 @@
     "api-interfaces": {
       "tags": []
     },
-    "dto": {
+    "schemas": {
       "tags": []
     },
-    "schemas": {
+    "dto": {
       "tags": []
     },
     "enums": {
       "tags": []
     },
-    "mongoose-models": {
+    "utilities": {
       "tags": []
     },
-    "utilities": {
+    "mongoose-models": {
       "tags": []
     }
   }

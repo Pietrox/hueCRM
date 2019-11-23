@@ -3,8 +3,7 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "types": [
-      "node",
-      "jest"
+      "node"
     ]
   },
   "exclude": [
@@ -12,20 +11,5 @@
   ],
   "include": [
     "**/*.ts"
-  ],
-  "@hue-crm/enums": [
-    "../../libs/enums/src/index"
-  ],
-  "@hue-crm/dto": [
-    "../../libs/dto/src/index"
-  ],
-  "@hue-crm/schemas": [
-    "../../libs/schemas/src/index"
-  ],
-  "@hue-crm/mongoose-models": [
-    "../../libs/mongoose-models/src/index"
-  ],
-  "@hue-crm/utilities": [
-    "../../libs/utilities/src/index"
   ]
 }

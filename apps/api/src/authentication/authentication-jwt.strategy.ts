@@ -7,8 +7,7 @@ import {AuthenticationService} from './authentication.service';
 export class AuthenticationJwtStrategy extends PassportStrategy(Strategy) {
 	constructor(private authenticationService: AuthenticationService) {
 		super({
-			jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
-			,
+			jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
 			secretOrKey: process.env.AUTH_TOKEN
 		});
 	}
@@ -16,8 +15,7 @@ export class AuthenticationJwtStrategy extends PassportStrategy(Strategy) {
 	async validate(payload: any, done: VerifiedCallback) {
 		const user = await this.authenticationService.validateUser(payload);
 		if (!user) {
-			return done(
-				new HttpException('Unauthorized access',
+			return done(new HttpException('Unauthorized access',
 					HttpStatus.UNAUTHORIZED),
 				false,
 			);
