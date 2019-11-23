@@ -2,35 +2,33 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule} from '@angular/router';
-import {AdminComponent} from './admin/admin.component';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LoginComponent} from '@huecrm/components';
+import {AuthenticationService} from '@huecrm/services';
+import {NbAuthModule} from '@nebular/auth';
+import {NbEvaIconsModule} from '@nebular/eva-icons';
+import {NbButtonModule, NbLayoutModule, NbSidebarModule, NbThemeModule} from '@nebular/theme';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
-import {LoginComponent} from './login/login.component';
+import {NavigationModule} from './navigation/navigation.module';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AdminComponent, HomeComponent],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: HomeComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'admin',
-        component: AdminComponent
-      }
-    ]),
-    FormsModule
-  ],
-  providers: [],
+	
+	imports: [
+		NbThemeModule.forRoot(),
+		NbLayoutModule,
+		NbSidebarModule.forRoot(),
+		NbButtonModule,
+		BrowserModule,
+		HttpClientModule,
+		FormsModule,
+		NavigationModule,
+		BrowserAnimationsModule,
+		NbThemeModule.forRoot({name: 'default'}),
+		NbEvaIconsModule,
+		NbAuthModule,
+	],
+	providers: [AppComponent, AuthenticationService],
+	declarations: [AppComponent, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -38,6 +38,12 @@
       ],
       "@huecrm/mongoose-models": [
         "libs/mongoose-models/src/index.ts"
+      ],
+      "@huecrm/services": [
+        "libs/services/src/index.ts"
+      ],
+      "@huecrm/components": [
+        "libs/components/src/index.ts"
       ]
     }
   },

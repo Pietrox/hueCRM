@@ -34,6 +34,12 @@
     },
     "mongoose-models": {
       "tags": []
+    },
+    "services": {
+      "tags": []
+    },
+    "components": {
+      "tags": []
     }
   }
 }

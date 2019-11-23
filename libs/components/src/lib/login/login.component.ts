@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AuthenticationService} from '../authentication.service';
+import {AuthenticationService} from '@huecrm/services';
+
 
 @Component({
 	selector: 'huecrm-login',
@@ -13,16 +14,12 @@ export class LoginComponent implements OnInit {
 	constructor(private authenticationService: AuthenticationService) {
 	}
 	
-	ngOnInit() {
-	}
-	
-	loginUser(event) {
+	loginUser() {
 		const username = this.formUsername.nativeElement.value;
 		const password = this.formPassword.nativeElement.value;
-		
 		this.authenticationService.getUser(username, password);
-		console.log(username, password);
-		
 	}
 	
+	ngOnInit() {
+	}
 }
