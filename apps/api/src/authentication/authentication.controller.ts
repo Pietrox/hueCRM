@@ -1,6 +1,6 @@
 import {DeleteUserDto, LoginDto, RegisterDto} from '@huecrm/dto';
 import {apiEndpointDecription, apiPaths, apiTags} from '@huecrm/enums';
-import {Controller, Delete, Get, Post, Query, UseGuards} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Post, Query, UseGuards} from '@nestjs/common';
 import {AuthGuard} from '@nestjs/passport';
 import {ApiBearerAuth, ApiOperation} from '@nestjs/swagger';
 import {AdminGuard} from '../guards/admin.guard';
@@ -25,7 +25,7 @@ export class AuthenticationController {
 	
 	@Post(apiPaths.login)
 	@ApiOperation({title: apiTags.userEndpoints, description: apiEndpointDecription.userLogin})
-	async login(@Query() loginDto: LoginDto) {
+	async login(@Body() loginDto: LoginDto) {
 		const user = await this.userService.findByLogin(loginDto);
 		const payload = {
 			username: user.username,
@@ -37,7 +37,7 @@ export class AuthenticationController {
 	
 	@Post(apiPaths.register)
 	@ApiOperation({title: apiTags.userEndpoints, description: apiEndpointDecription.userRegister})
-	async register(@Query() registerDto: RegisterDto) {
+	async register(@Body() registerDto: RegisterDto) {
 		const user = await this.userService.create(registerDto);
 		const payload = {
 			username: user.username,
@@ -49,7 +49,7 @@ export class AuthenticationController {
 	
 	@Delete(apiPaths.delete)
 	@ApiOperation({title: apiTags.userEndpoints, description: apiEndpointDecription.userDelete})
-	async deleteByLogin(@Query() deleteUserDto: DeleteUserDto) {
+	async deleteByLogin(@Body() deleteUserDto: DeleteUserDto) {
 		await this.userService.deleteByLogin(deleteUserDto);
 		return 'User has been deleted';
 		
