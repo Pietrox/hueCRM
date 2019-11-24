@@ -1,0 +1,23 @@
+<nb-card size="giant">
+    <nb-tabset fullWidth>
+
+        <nb-tab tabTitle="Contacts">
+            <nb-list>
+                <nb-list-item *ngFor="let c of contacts" class="contact">
+                    <nb-user [name]="c.user.name" [picture]="c.user.picture" [title]="c.type" size="large"></nb-user>
+                    <nb-icon icon="phone-outline" pack="eva"></nb-icon>
+                </nb-list-item>
+            </nb-list>
+        </nb-tab>
+
+        <nb-tab tabTitle="Recent">
+            <nb-list>
+                <nb-list-item *ngFor="let c of recent" class="contact">
+                    <nb-user [name]="c.user.name" [picture]="c.user.picture" [title]="c.type" size="large"></nb-user>
+                    <span class="caption">{{ c.time | date: 'shortTime' }}</span>
+                </nb-list-item>
+            </nb-list>
+        </nb-tab>
+
+    </nb-tabset>
+</nb-card>

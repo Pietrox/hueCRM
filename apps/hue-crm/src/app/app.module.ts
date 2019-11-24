@@ -1,31 +1,57 @@
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginComponent} from '@huecrm/components';
+import {CoreModule} from '@huecrm/core';
 import {AuthenticationService} from '@huecrm/services';
-import {NbAuthModule} from '@nebular/auth';
+import {ThemeModule} from '@huecrm/theme';
+import {NbAuthModule, NbPasswordAuthStrategy} from '@nebular/auth';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
-import {NbButtonModule, NbLayoutModule, NbSidebarModule, NbThemeModule} from '@nebular/theme';
+import {
+	NbButtonModule,
+	NbChatModule,
+	NbDatepickerModule,
+	NbDialogModule,
+	NbLayoutModule,
+	NbMenuModule,
+	NbSidebarModule,
+	NbThemeModule,
+	NbToastrModule,
+	NbWindowModule
+} from '@nebular/theme';
 import {AppComponent} from './app.component';
-import {NavigationModule} from './navigation/navigation.module';
+import {AppRoutingModule} from './app.routing.module';
 
 @NgModule({
-	
 	imports: [
-		NbThemeModule.forRoot(),
-		NbLayoutModule,
-		NbSidebarModule.forRoot(),
-		NbButtonModule,
 		BrowserModule,
-		HttpClientModule,
-		FormsModule,
-		NavigationModule,
 		BrowserAnimationsModule,
-		NbThemeModule.forRoot({name: 'default'}),
+		HttpClientModule,
+		AppRoutingModule,
+		ThemeModule.forRoot(),
+		NbSidebarModule.forRoot(),
+		NbMenuModule.forRoot(),
+		NbDatepickerModule.forRoot(),
+		NbDialogModule.forRoot(),
+		NbWindowModule.forRoot(),
+		NbToastrModule.forRoot(),
 		NbEvaIconsModule,
-		NbAuthModule,
+		NbButtonModule,
+		NbLayoutModule,
+		NbThemeModule,
+		NbChatModule.forRoot({
+			messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY'
+		}),
+		CoreModule.forRoot(),
+		NbAuthModule.forRoot({
+			strategies: [
+				NbPasswordAuthStrategy.setup({
+					name: 'username'
+				})
+			],
+			forms: {}
+		})
 	],
 	providers: [AppComponent, AuthenticationService],
 	declarations: [AppComponent, LoginComponent],

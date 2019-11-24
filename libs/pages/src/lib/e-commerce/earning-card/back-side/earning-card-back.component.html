@@ -1,0 +1,14 @@
+<nb-card-header>
+    Earnings
+</nb-card-header>
+<nb-card-body>
+    <div class="chart-info">
+        <div [style.color]="color">{{ name }}</div>
+        <div class="time-period caption">Last week:</div>
+        <div class="h6">{{ value }}%</div>
+    </div>
+    <huecrm-earning-pie-chart (selectPie)="changeChartInfo($event)"
+                              [defaultSelectedCurrency]="defaultSelectedCurrency"
+                              [values]="earningPieChartData">
+    </huecrm-earning-pie-chart>
+</nb-card-body>

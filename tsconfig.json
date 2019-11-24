@@ -44,6 +44,15 @@
       ],
       "@huecrm/components": [
         "libs/components/src/index.ts"
+      ],
+      "@huecrm/core": [
+        "libs/core/src/index.ts"
+      ],
+      "@huecrm/theme": [
+        "libs/theme/src/index.ts"
+      ],
+      "@huecrm/pages": [
+        "libs/pages/src/index.ts"
       ]
     }
   },

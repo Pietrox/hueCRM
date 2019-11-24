@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-lg-6">
+        <nb-card>
+            <nb-card-header>Default Inputs</nb-card-header>
+            <nb-card-body>
+                <input fullWidth nbInput placeholder="Project" type="text">
+                <div class="full-name-inputs">
+                    <input fullWidth nbInput placeholder="Nick" type="text">
+                    <input fullWidth nbInput placeholder="Last Name" type="text">
+                </div>
+                <input fullWidth nbInput placeholder="Password" type="password">
+                <input fullWidth nbInput placeholder="Rectangle border" shape="rectangle" type="text">
+                <input fullWidth nbInput placeholder="Semi-round border" shape="semi-round" type="text">
+                <input fullWidth nbInput placeholder="Rounded border" shape="round" type="text">
+                <input disabled fullWidth nbInput placeholder="Disabled input" type="text"/>
+                <textarea fullWidth nbInput placeholder="Text Area" rows="5" shape="round"></textarea>
+                <input fieldSize="small" fullWidth nbInput placeholder="Small Input" type="text">
+                <input fieldSize="medium" fullWidth nbInput placeholder="Medium Input" type="text">
+                <input fieldSize="large" fullWidth nbInput placeholder="Large Input" type="text">
+            </nb-card-body>
+        </nb-card>
+    </div>
+
+    <div class="col-lg-6">
+
+        <nb-card>
+            <nb-card-header>Select</nb-card-header>
+            <nb-card-body>
+                <nb-select selected="1">
+                    <nb-option value="1">Option 1</nb-option>
+                    <nb-option value="2">Option 2</nb-option>
+                </nb-select>
+            </nb-card-body>
+        </nb-card>
+
+        <nb-card>
+            <nb-card-header>Validation States</nb-card-header>
+            <nb-card-body>
+                <input fullWidth nbInput placeholder="Input with Info" status="info" type="text">
+                <input fullWidth nbInput placeholder="Warning Input" status="success" type="text">
+                <input fullWidth nbInput placeholder="Danger Input" status="warning" type="text">
+                <input fullWidth nbInput placeholder="Danger Input" status="danger" type="text">
+                <input fullWidth nbInput placeholder="Input with Primary" status="primary" type="text">
+                <div class="validation-checkboxes">
+                    <nb-checkbox status="success">Success Checkbox</nb-checkbox>
+                    <nb-checkbox status="warning">Warning Checkbox</nb-checkbox>
+                    <nb-checkbox status="danger">Danger Checkbox</nb-checkbox>
+                </div>
+            </nb-card-body>
+        </nb-card>
+
+        <nb-card>
+            <nb-card-header>Checkboxes & Radios</nb-card-header>
+            <nb-card-body class="checkbox-radio">
+                <div class="demo-items">
+                    <nb-checkbox>Checkbox 1</nb-checkbox>
+                    <nb-checkbox [value]="true">Checkbox 2</nb-checkbox>
+                </div>
+                <div class="demo-items">
+                    <nb-radio-group [(value)]="radioGroupValue">
+                        <nb-radio
+                                [value]="'This is value 1'">
+                            Radio 1
+                        </nb-radio>
+                        <nb-radio
+                                [value]="'This is value 2'">
+                            Radio 2
+                        </nb-radio>
+                        <nb-radio
+                                [value]="'This is value 3'">
+                            Radio 3
+                        </nb-radio>
+                    </nb-radio-group>
+                </div>
+                <div class="demo-items">
+                    <nb-checkbox disabled>Disabled Checkbox</nb-checkbox>
+                    <nb-radio-group disabled>
+                        <nb-radio
+                                [value]="'Disabled Value'">
+                            Disabled Radio
+                        </nb-radio>
+                    </nb-radio-group>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

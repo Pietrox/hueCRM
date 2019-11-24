@@ -1,0 +1,12 @@
+<nb-list>
+    <nb-list-item *ngFor="let item of frontCardData; trackBy: trackByDate" class="item">
+        <span>{{ item.date }}</span>
+        <span>{{ item.value }}</span>
+        <span [class.down]="!item.delta.up" [class.up]="item.delta.up" class="delta">
+      <nb-icon [icon]="item.delta.up ? 'arrow-up' : 'arrow-down'" pack="eva"></nb-icon>
+            {{ item.delta.value }}%
+    </span>
+        <huecrm-traffic-bar [barData]="item.comparison" [successDelta]="item.delta.up">
+        </huecrm-traffic-bar>
+    </nb-list-item>
+</nb-list>

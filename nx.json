@@ -40,6 +40,15 @@
     },
     "components": {
       "tags": []
+    },
+    "core": {
+      "tags": []
+    },
+    "theme": {
+      "tags": []
+    },
+    "pages": {
+      "tags": []
     }
   }
 }

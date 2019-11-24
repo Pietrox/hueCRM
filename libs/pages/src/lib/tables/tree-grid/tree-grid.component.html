@@ -1,0 +1,34 @@
+<nb-card>
+    <nb-card-body>
+
+        <label class="search-label" for="search">Search:</label>
+        <input [nbFilterInput]="dataSource" class="search-input" id="search" nbInput>
+
+        <table (sort)="updateSort($event)" [nbSort]="dataSource" [nbTreeGrid]="dataSource">
+
+            <tr *nbTreeGridHeaderRowDef="allColumns" nbTreeGridHeaderRow></tr>
+            <tr *nbTreeGridRowDef="let row; columns: allColumns" nbTreeGridRow></tr>
+
+            <ng-container [nbTreeGridColumnDef]="customColumn">
+                <th *nbTreeGridHeaderCellDef [nbSortHeader]="getSortDirection(customColumn)" nbTreeGridHeaderCell>
+                    {{customColumn}}
+                </th>
+                <td *nbTreeGridCellDef="let row" nbTreeGridCell>
+                    <huecrm-fs-icon [expanded]="row.expanded" [kind]="row.data.kind"></huecrm-fs-icon>
+                    {{row.data[customColumn]}}
+                </td>
+            </ng-container>
+
+            <ng-container *ngFor="let column of defaultColumns; let index = index"
+                          [nbTreeGridColumnDef]="column"
+                          [showOn]="getShowOn(index)">
+                <th *nbTreeGridHeaderCellDef [nbSortHeader]="getSortDirection(column)" nbTreeGridHeaderCell>
+                    {{column}}
+                </th>
+                <td *nbTreeGridCellDef="let row" nbTreeGridCell>{{row.data[column] || '-'}}</td>
+            </ng-container>
+
+        </table>
+
+    </nb-card-body>
+</nb-card>

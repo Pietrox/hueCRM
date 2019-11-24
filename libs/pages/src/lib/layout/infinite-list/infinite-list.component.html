@@ -1,0 +1,36 @@
+<div class="infinite-cards row">
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card class="own-scroll">
+            <nb-card-header>Own Scroll</nb-card-header>
+            <nb-list
+                    (bottomThreshold)="loadNext(firstCard)"
+                    [threshold]="500"
+                    nbInfiniteList>
+                <nb-list-item *ngFor="let newsPost of firstCard.news">
+                    <huecrm-news-post [post]="newsPost"></huecrm-news-post>
+                </nb-list-item>
+                <nb-list-item *ngFor="let _ of firstCard.placeholders">
+                    <huecrm-news-post-placeholder></huecrm-news-post-placeholder>
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card>
+            <nb-card-header>Window Scroll</nb-card-header>
+            <nb-list
+                    (bottomThreshold)="loadNext(secondCard)"
+                    [threshold]="500"
+                    listenWindowScroll
+                    nbInfiniteList>
+                <nb-list-item *ngFor="let newsPost of secondCard.news">
+                    <huecrm-news-post [post]="newsPost"></huecrm-news-post>
+                </nb-list-item>
+                <nb-list-item *ngFor="let _ of secondCard.placeholders">
+                    <huecrm-news-post-placeholder></huecrm-news-post-placeholder>
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+</div>

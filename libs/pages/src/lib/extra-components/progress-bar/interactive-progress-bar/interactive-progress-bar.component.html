@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header>Progress Bar Interactive</nb-card-header>
+    <nb-card-body>
+        <div class="container">
+            <button (click)="decreaseValue()" [disabled]="canDecrease ? null : ''" appearance="ghost" nbButton>
+                <nb-icon icon="minus" pack="eva"></nb-icon>
+            </button>
+            <nb-progress-bar [displayValue]="true" [status]="status" [value]="value"></nb-progress-bar>
+            <button (click)="increaseValue()" [disabled]="canIncrease ? null : ''" appearance="ghost" nbButton>
+                <nb-icon icon="plus" pack="eva"></nb-icon>
+            </button>
+        </div>
+    </nb-card-body>
+</nb-card>

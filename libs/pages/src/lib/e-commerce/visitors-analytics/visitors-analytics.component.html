@@ -1,0 +1,18 @@
+<nb-card size="medium">
+    <nb-card-header>
+        <h3>Visitors Analytics</h3>
+        <div class="subtitle">Consumption</div>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="chart-container">
+            <div class="chart-header">
+                <huecrm-legend-chart [legendItems]="chartLegend"></huecrm-legend-chart>
+            </div>
+            <huecrm-visitors-analytics-chart [chartData]="visitorsAnalyticsData"></huecrm-visitors-analytics-chart>
+        </div>
+    </nb-card-body>
+
+    <huecrm-slide-out [showVisitorsStatistics]="true">
+        <huecrm-visitors-statistics [value]="pieChartValue"></huecrm-visitors-statistics>
+    </huecrm-slide-out>
+</nb-card>

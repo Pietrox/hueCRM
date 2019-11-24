@@ -1,0 +1,165 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="inline-form-card">
+            <nb-card-header>Inline form</nb-card-header>
+            <nb-card-body>
+                <form class="form-inline">
+                    <input fullWidth nbInput placeholder="Jane Doe" type="text">
+                    <input fullWidth nbInput placeholder="Email" type="text">
+                    <nb-checkbox>Remember me</nb-checkbox>
+                    <button nbButton status="primary" type="submit">Submit</button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <nb-card>
+            <nb-card-header>Using the Grid</nb-card-header>
+            <nb-card-body>
+                <form>
+                    <div class="form-group row">
+                        <label class="label col-sm-3 col-form-label" for="inputEmail1">Email</label>
+                        <div class="col-sm-9">
+                            <input fullWidth id="inputEmail1" nbInput placeholder="Email" type="email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="label col-sm-3 col-form-label" for="inputPassword2">Password</label>
+                        <div class="col-sm-9">
+                            <input fullWidth id="inputPassword2" nbInput placeholder="Password" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 label">Radios</label>
+                        <div class="col-sm-9">
+                            <nb-radio-group>
+                                <nb-radio>Option 1</nb-radio>
+                                <nb-radio>Option 2</nb-radio>
+                                <nb-radio disabled>Disabled Option</nb-radio>
+                            </nb-radio-group>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-sm-3 col-sm-9">
+                            <button nbButton status="primary" type="submit">Sign in</button>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+
+        <nb-card>
+            <nb-card-header>Form without labels</nb-card-header>
+            <nb-card-body>
+                <form>
+                    <div class="form-group">
+                        <input fullWidth nbInput placeholder="Recipients" type="text">
+                    </div>
+                    <div class="form-group">
+                        <input fullWidth nbInput placeholder="Subject" type="text">
+                    </div>
+                    <div class="form-group">
+                        <textarea nbInput placeholder="Message"></textarea>
+                    </div>
+                    <button nbButton status="success" type="submit">Send</button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+
+    <div class="col-md-6">
+        <nb-card>
+            <nb-card-header>Basic form</nb-card-header>
+            <nb-card-body>
+                <form>
+                    <div class="form-group">
+                        <label class="label" for="exampleInputEmail1">Email address</label>
+                        <input fullWidth id="exampleInputEmail1" nbInput placeholder="Email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label class="label" for="exampleInputPassword1">Password</label>
+                        <input fullWidth id="exampleInputPassword1" nbInput placeholder="Password" type="password">
+                    </div>
+                    <div class="form-group">
+                        <nb-checkbox>Check me out</nb-checkbox>
+                    </div>
+                    <button nbButton status="danger" type="submit">Submit</button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+
+        <nb-card>
+            <nb-card-header>Block form</nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="label" for="inputFirstName">First Name</label>
+                            <input fullWidth id="inputFirstName" nbInput placeholder="First Name" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="label" for="inputLastName">Last Name</label>
+                            <input fullWidth id="inputLastName" nbInput placeholder="Last Name" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="label" for="inputEmail">Email</label>
+                            <input fullWidth id="inputEmail" nbInput placeholder="Email" type="email">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="label" for="inputWebsite">Website</label>
+                            <input fullWidth id="inputWebsite" nbInput placeholder="Website" type="text">
+                        </div>
+                    </div>
+                </div>
+                <button nbButton type="submit">Submit</button>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <nb-card>
+            <nb-card-header>Horizontal form</nb-card-header>
+            <nb-card-body>
+                <form class="form-horizontal">
+                    <div class="form-group row">
+                        <label class="label col-sm-3 form-control-label" for="inputEmail3">Email</label>
+                        <div class="col-sm-9">
+                            <input fullWidth id="inputEmail3" nbInput placeholder="Email" type="email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="label col-sm-3 form-control-label" for="inputPassword3">Password</label>
+                        <div class="col-sm-9">
+                            <input fullWidth id="inputPassword3" nbInput placeholder="Password" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-sm-3 col-sm-9">
+                            <div class="checkbox">
+                                <nb-checkbox>Remember me</nb-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-sm-3 col-sm-9">
+                            <button nbButton status="warning" type="submit">Sign in</button>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

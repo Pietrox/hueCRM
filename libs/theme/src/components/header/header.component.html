@@ -1,0 +1,29 @@
+<div class="header-container">
+    <div class="logo-container">
+        <a (click)="toggleSidebar()" class="sidebar-toggle" href="#">
+            <nb-icon icon="menu-2-outline"></nb-icon>
+        </a>
+        <a (click)="navigateHome()" class="logo" href="#">ngx-<span>admin</span></a>
+    </div>
+    <nb-select (selectedChange)="changeTheme($event)" [selected]="currentTheme" status="primary">
+        <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
+    </nb-select>
+</div>
+
+<div class="header-container">
+    <nb-actions size="small">
+
+        <nb-action class="control-item">
+            <nb-search type="rotate-layout"></nb-search>
+        </nb-action>
+        <nb-action class="control-item" icon="email-outline"></nb-action>
+        <nb-action class="control-item" icon="bell-outline"></nb-action>
+        <nb-action *nbIsGranted="['view', 'user']" class="user-action">
+            <nb-user [name]="user?.name"
+                     [nbContextMenu]="userMenu"
+                     [onlyPicture]="userPictureOnly"
+                     [picture]="user?.picture">
+            </nb-user>
+        </nb-action>
+    </nb-actions>
+</div>

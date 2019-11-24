@@ -1,0 +1,7 @@
+<huecrm-legend-chart [legendItems]="chartLegend"></huecrm-legend-chart>
+
+<nb-select (selectedChange)="changePeriod($event)" [selected]="type" class="period-select">
+    <nb-option *ngFor="let period of types" [value]="period">
+        {{ period }}
+    </nb-option>
+</nb-select>

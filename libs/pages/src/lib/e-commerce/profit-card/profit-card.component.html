@@ -1,0 +1,14 @@
+<nb-flip-card [flipped]="flipped" [showToggleButton]="false">
+    <nb-card-front>
+        <nb-card size="tiny">
+            <huecrm-stats-card-front></huecrm-stats-card-front>
+            <nb-icon (click)="toggleView()" class="flip-icon" icon="chevron-right-outline" pack="eva"></nb-icon>
+        </nb-card>
+    </nb-card-front>
+    <nb-card-back>
+        <nb-card size="tiny">
+            <huecrm-stats-card-back></huecrm-stats-card-back>
+            <nb-icon (click)="toggleView()" class="flip-icon" icon="chevron-right-outline" pack="eva"></nb-icon>
+        </nb-card>
+    </nb-card-back>
+</nb-flip-card>

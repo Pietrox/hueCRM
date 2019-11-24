@@ -1,0 +1,12 @@
+<nb-icon (click)="toggleStatistics()"
+         [icon]="showVisitorsStatistics ? 'arrow-forward-outline' : 'arrow-back-outline'"
+         class="show-hide-toggle"
+         pack="eva">
+</nb-icon>
+<div [class.collapsed]="!showVisitorsStatistics"
+     [class.expanded]="showVisitorsStatistics"
+     class="slide-out-container">
+    <div class="content-wrapper">
+        <ng-content></ng-content>
+    </div>
+</div>

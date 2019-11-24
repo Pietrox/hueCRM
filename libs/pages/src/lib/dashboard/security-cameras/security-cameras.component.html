@@ -1,0 +1,61 @@
+<nb-card size="giant">
+
+    <nb-card-header>
+        Security Cameras
+
+        <button (click)="isSingleView = true"
+                [appearance]="isSingleView ? 'filled' : 'outline'"
+                class="single-view-button"
+                nbButton
+                size="small">
+            <i class="nb-square"></i>
+        </button>
+        <button (click)="isSingleView = false"
+                [appearance]="isSingleView ? 'outline' : 'filled'"
+                class="grid-view-button"
+                nbButton
+                size="small">
+            <nb-icon icon="grid" pack="eva"></nb-icon>
+        </button>
+    </nb-card-header>
+
+    <div class="grid-container">
+
+        <div *ngIf="isSingleView" class="single-view">
+            <div [style.background-image]="'url(' + selectedCamera.source + ')'" class="camera">
+                <span class="camera-name">{{ selectedCamera.title }}</span>
+            </div>
+        </div>
+
+        <div *ngIf="!isSingleView" class="grid-view">
+            <div (click)="selectCamera(camera)"
+                 *ngFor="let camera of cameras"
+                 [style.background-image]="'url(' + camera.source + ')'"
+                 class="camera">
+                <span class="camera-name">{{ camera.title }}</span>
+            </div>
+        </div>
+
+    </div>
+
+    <nb-card-footer>
+        <nb-actions [size]="actionSize" fullWidth>
+            <nb-action>
+                <nb-icon icon="pause-circle-outline" pack="eva"></nb-icon>
+                Pause
+            </nb-action>
+            <nb-action>
+                <nb-icon icon="list-outline" pack="eva"></nb-icon>
+                Logs
+            </nb-action>
+            <nb-action>
+                <nb-icon icon="search-outline" pack="eva"></nb-icon>
+                Search
+            </nb-action>
+            <nb-action>
+                <nb-icon icon="settings-2-outline" pack="eva"></nb-icon>
+                Setup
+            </nb-action>
+        </nb-actions>
+    </nb-card-footer>
+</nb-card>

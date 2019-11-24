@@ -1,0 +1,23 @@
+<nb-card-header>
+    <nb-select (selectedChange)="changeCurrency($event)" [selected]="selectedCurrency">
+        <nb-option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</nb-option>
+    </nb-select>
+</nb-card-header>
+<nb-card-body>
+    <div class="chart-info">
+        <div>Daily Income</div>
+        <div class="h6">{{ earningLiveUpdateCardData.dailyIncome | ngxNumberWithCommas }}</div>
+        <div [class.down]="!earningLiveUpdateCardData.delta.up"
+             [class.up]="earningLiveUpdateCardData.delta.up"
+             class="delta">
+            <nb-icon [icon]="earningLiveUpdateCardData.delta.up ? 'arrow-up' : 'arrow-down'"
+                     class="direction"
+                     pack="eva">
+            </nb-icon>
+            {{ earningLiveUpdateCardData.delta.value }}%
+        </div>
+    </div>
+    <huecrm-earning-live-update-chart
+            [liveUpdateChartData]="liveUpdateChartData">
+    </huecrm-earning-live-update-chart>
+</nb-card-body>

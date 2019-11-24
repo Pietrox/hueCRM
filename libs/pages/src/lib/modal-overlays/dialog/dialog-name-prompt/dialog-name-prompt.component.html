@@ -1,0 +1,10 @@
+<nb-card>
+    <nb-card-header>Enter your name</nb-card-header>
+    <nb-card-body>
+        <input #name nbInput placeholder="Name">
+    </nb-card-body>
+    <nb-card-footer>
+        <button (click)="cancel()" class="cancel" nbButton status="danger">Cancel</button>
+        <button (click)="submit(name.value)" nbButton status="success">Submit</button>
+    </nb-card-footer>
+</nb-card>
