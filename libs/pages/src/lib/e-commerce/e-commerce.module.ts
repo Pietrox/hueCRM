@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+
+import {ThemeModule} from '@huecrm/theme';
 import {
 	NbButtonModule,
 	NbCardModule,
@@ -13,8 +15,6 @@ import {
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {ChartModule} from 'angular2-chartjs';
 import {NgxEchartsModule} from 'ngx-echarts';
-
-import {ThemeModule} from '../../../../theme/src/theme.module';
 import {ChartPanelHeaderComponent} from './charts-panel/chart-panel-header/chart-panel-header.component';
 import {ChartPanelSummaryComponent} from './charts-panel/chart-panel-summary/chart-panel-summary.component';
 import {ECommerceChartsPanelComponent} from './charts-panel/charts-panel.component';

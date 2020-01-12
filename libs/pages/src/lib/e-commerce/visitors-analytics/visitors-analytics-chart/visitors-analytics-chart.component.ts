@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, Input, OnDestroy} from '@angular/core';
-import {LayoutService} from '@huecrm/core';
+import {LayoutService, OutlineData} from '@huecrm/core';
 import {NbThemeService} from '@nebular/theme';
 import {delay, takeWhile} from 'rxjs/operators';
-import {OutlineData} from '../../../../../../core/src/data/visitors-analytics';
 
+declare const echarts: any;
 
 @Component({
 	selector: 'huecrm-visitors-analytics-chart',

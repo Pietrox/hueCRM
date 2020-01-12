@@ -20,8 +20,12 @@ import {
 	NbToastrModule,
 	NbWindowModule
 } from '@nebular/theme';
+import {environment} from '../environments/environment';
+
+
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app.routing.module';
+
 
 @NgModule({
 	imports: [
@@ -47,10 +51,24 @@ import {AppRoutingModule} from './app.routing.module';
 		NbAuthModule.forRoot({
 			strategies: [
 				NbPasswordAuthStrategy.setup({
-					name: 'username'
+					name: 'username',
+					baseEndpoint: environment.BACKEND_URL,
+					login: {
+						endpoint: environment.LOGIN,
+					},
+					register: {
+						endpoint: environment.REGISTER,
+					},
+					logout: {
+						endpoint: '',
+					}
 				})
 			],
-			forms: {}
+			forms: {
+				login: {
+					username:
+				}
+			}
 		})
 	],
 	providers: [AppComponent, AuthenticationService],

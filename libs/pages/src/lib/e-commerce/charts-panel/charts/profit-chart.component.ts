@@ -3,6 +3,7 @@ import {LayoutService, ProfitChart} from '@huecrm/core';
 import {NbThemeService} from '@nebular/theme';
 import {takeWhile} from 'rxjs/operators';
 
+declare const echarts: any;
 
 @Component({
 	selector: 'huecrm-profit-chart',

@@ -36,7 +36,7 @@
               "fileReplacements": [
                 {
                   "replace": "apps/hue-crm/src/environments/environment.ts",
-                  "with": "apps/hue-crm/src/environments/environment.prod.ts"
+                  "with": "apps/hue-crm/src/environments/environment.ts"
                 }
               ],
               "optimization": true,
@@ -524,6 +524,40 @@
             "jestConfig": "libs/pages/jest.config.js",
             "tsConfig": "libs/pages/tsconfig.spec.json",
             "setupFile": "libs/pages/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "config": {
+      "projectType": "library",
+      "root": "libs/config",
+      "sourceRoot": "libs/config/src",
+      "prefix": "huecrm",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/config/tsconfig.lib.json",
+              "libs/config/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/config/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/config/jest.config.js",
+            "tsConfig": "libs/config/tsconfig.spec.json",
+            "setupFile": "libs/config/src/test-setup.ts"
           }
         }
       },

@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {ThemeModule} from '@huecrm/theme';
 import {
 	NbActionsModule,
 	NbButtonModule,
@@ -12,8 +13,6 @@ import {
 	NbUserModule,
 } from '@nebular/theme';
 import {NgxEchartsModule} from 'ngx-echarts';
-
-import {ThemeModule} from '../../../../theme/src/theme.module';
 import {ContactsComponent} from './contacts/contacts.component';
 import {DashboardComponent} from './dashboard.component';
 import {ElectricityChartComponent} from './electricity/electricity-chart/electricity-chart.component';

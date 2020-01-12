@@ -1,5 +1,6 @@
 import {LocationStrategy} from '@angular/common';
 import {AfterViewInit, Component, ElementRef, EventEmitter, OnDestroy, Output} from '@angular/core';
+import {tinymce} from 'tinymce';
 
 @Component({
 	selector: 'huecrm-tiny-mce',

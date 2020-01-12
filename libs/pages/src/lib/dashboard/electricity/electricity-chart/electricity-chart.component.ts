@@ -3,6 +3,7 @@ import {ElectricityChart, LayoutService} from '@huecrm/core';
 import {NbThemeService} from '@nebular/theme';
 import {delay, takeWhile} from 'rxjs/operators';
 
+declare const echarts: any;
 
 @Component({
 	selector: 'huecrm-electricity-chart',
@@ -11,9 +12,7 @@ import {delay, takeWhile} from 'rxjs/operators';
         <div echarts
              [options]="option"
              class="echart"
-             (chartInit)="onChartInit($event)">
-        </div>
-	`,
+             (chartInit)="onChartInit($event)"></div>`,
 })
 export class ElectricityChartComponent implements AfterViewInit, OnDestroy {
 	

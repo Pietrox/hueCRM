@@ -49,6 +49,9 @@
     },
     "pages": {
       "tags": []
+    },
+    "config": {
+      "tags": []
     }
   }
 }

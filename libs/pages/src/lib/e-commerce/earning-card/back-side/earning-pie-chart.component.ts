@@ -2,6 +2,7 @@ import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output} from '
 import {NbThemeService} from '@nebular/theme';
 import {delay, takeWhile} from 'rxjs/operators';
 
+declare const echarts: any;
 @Component({
 	selector: 'huecrm-earning-pie-chart',
 	styleUrls: ['./earning-card-back.component.scss'],

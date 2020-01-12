@@ -3,6 +3,7 @@ import {LayoutService} from '@huecrm/core';
 import {NbThemeService} from '@nebular/theme';
 import {delay, takeWhile} from 'rxjs/operators';
 
+declare const echarts: any;
 @Component({
 	selector: 'huecrm-traffic-chart',
 	template: `
