@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {AnalyticsService} from '@huecrm/core';
+import {Component} from '@angular/core';
+
 
 @Component({
   selector: 'huecrm-root',
@@ -7,12 +7,5 @@ import {AnalyticsService} from '@huecrm/core';
   styleUrls: ['./app.component.scss'],
 })
 
-export class AppComponent implements OnInit {
-	
-	constructor(private analytics: AnalyticsService) {
-	}
-	
-	ngOnInit(): void {
-		this.analytics.trackPageViews();
-	}
+export class AppComponent {
 }
