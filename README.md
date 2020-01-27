@@ -15,11 +15,11 @@ Online CRM project for web based business. Based on Nx workspace, Angular front-
 $ git clone https://github.com/hueSoft/hueCRM.git
 $ npm install
 $ mv .env.dev.example .env
-Edit .env according your needs - should work out of the box if AUTH_TOKEN is set, example value is not secure
+
 ```
 
-Rename .env.dev.example to .env to initiate development mode
-Make sure you have correct config to the database and port according to your machine.
+Edit .env according your needs - should work out of the box if AUTH_TOKEN is set, example value is not secure
+Make sure you have correct config to the database and port according to your server.
 
 ## Running the app
 
