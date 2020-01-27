@@ -14,6 +14,8 @@ Online CRM project for web based business. Based on Nx workspace, Angular front-
 ```bash
 $ git clone https://github.com/hueSoft/hueCRM.git
 $ npm install
+$ mv .env.dev.example .env
+Edit .env according your needs - should work out of the box if AUTH_TOKEN is set, example value is not secure
 ```
 
 Rename .env.dev.example to .env to initiate development mode
@@ -24,14 +26,13 @@ Make sure you have correct config to the database and port according to your mac
 ```bash
 # Rename the .env.dev.example to .env
 # app - will run on port 4200
-ng serve  
+npm run serve:hue-crm
 # api - will run on port 3000
-ng serve api 
+nx serve api 
 
-# only development mode supported for now
 ```
 To access swagger with default development config go to http://localhost:3000/api/docs
-
+There is still no installation for first user. So you need to setup MongoDB and set the values for user collection according to the ./libs/schemas/src/lib/user.schema.ts
 ## Support
 
 hueCRM is an MIT-licensed open source project. It can grow thanks to developers willing to spend their own time to help grow the project and of course sponsors but that will be available much later.
