@@ -9,7 +9,7 @@ export class LoginDto {
 	@IsNotEmpty()
 	@IsString()
 	@Type(() => String)
-	username: string;
+	email: string;
 	@ApiModelProperty({default: userParamExample.password})
 	@IsNotEmpty()
 	@IsString()

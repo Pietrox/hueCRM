@@ -35,22 +35,7 @@
     "mongoose-models": {
       "tags": []
     },
-    "services": {
-      "tags": []
-    },
-    "components": {
-      "tags": []
-    },
-    "core": {
-      "tags": []
-    },
-    "theme": {
-      "tags": []
-    },
-    "pages": {
-      "tags": []
-    },
-    "config": {
+    "interfaces": {
       "tags": []
     }
   }

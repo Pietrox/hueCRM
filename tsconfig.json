@@ -56,6 +56,12 @@
       ],
       "@huecrm/config": [
         "libs/config/src/index.ts"
+      ],
+      "@huecrm/nebular": [
+        "libs/nebular/src/index.ts"
+      ],
+      "@huecrm/interfaces": [
+        "libs/interfaces/src/index.ts"
       ]
     }
   },

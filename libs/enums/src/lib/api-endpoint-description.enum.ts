@@ -9,6 +9,7 @@ export enum ApiEndpointDescriptionEnum {
     userGetByUserName = 'Get User by UserName',
     userPut = 'Update User',
     userDelete = 'Delete User',
+    leadModel = 'Get Lead Model',
     leadGetAll = 'Get All Leads',
     leadCreate = 'Create Lead',
     leadGetById = 'Get Lead By Id',

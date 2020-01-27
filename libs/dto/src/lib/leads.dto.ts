@@ -1,5 +1,5 @@
 import {leadsParamExample} from '@huecrm/enums';
-import {ApiModelProperty} from '@nestjs/swagger';
+import {ApiModelProperty, ApiModelPropertyOptional} from '@nestjs/swagger';
 import {IsNotEmpty, IsString} from 'class-validator';
 
 export class LeadsDto {
@@ -20,13 +20,9 @@ export class LeadsDto {
 	@IsNotEmpty()
 	@IsString()
 	phone: string;
-	@ApiModelProperty({default: leadsParamExample.created})
-	@IsNotEmpty()
-	@IsString()
+	@ApiModelPropertyOptional({default: leadsParamExample.created})
 	created: string;
-	@ApiModelProperty({default: leadsParamExample.owner})
-	@IsNotEmpty()
-	@IsString()
+	@ApiModelPropertyOptional({default: leadsParamExample.owner})
 	owner: string;
 }
 

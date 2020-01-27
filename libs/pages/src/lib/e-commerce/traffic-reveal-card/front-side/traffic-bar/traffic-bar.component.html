@@ -1,9 +1,0 @@
-<span class="value-prev caption">{{ barData.prevDate }}</span>
-<div [style.height.%]="barData.prevValue" class="progress-line-container">
-    <div class="progress-line-prev"></div>
-</div>
-<div [style.height.%]="barData.nextValue" class="progress-line-container">
-    <div [class.failure]="!successDelta" [class.success]="successDelta" class="progress-line-now">
-    </div>
-</div>
-<span class="value-now caption">{{ barData.nextDate }}</span>

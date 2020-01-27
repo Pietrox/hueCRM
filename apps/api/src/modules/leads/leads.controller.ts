@@ -9,10 +9,17 @@ import {LeadsService} from './leads.service';
 export class LeadsController {
 	constructor(private leadsService: LeadsService) {
 	}
+	
 	@Get(apiPaths.allLeads)
 	@ApiOperation({title: apiTags.leadEndpoints, description: apiEndpointDecription.leadGetAll})
 	async listAll(): Promise<LeadsModel[]> {
 		return await this.leadsService.findAll();
+	}
+	
+	@Get(apiPaths.leadModel)
+	@ApiOperation({title: apiTags.leadEndpoints, description: apiEndpointDecription.leadModel})
+	async leadModel(): Promise<any> {
+		return await this.leadsService.leadModel();
 	}
 	
 	@Post(apiPaths.createLead)

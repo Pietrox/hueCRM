@@ -1,0 +1,29 @@
+nb-layout-header nav {
+  display: block !important;
+}
+
+
+.header-container {
+  &.left {
+    float: left;
+    text-align: center;
+  }
+
+  &.right {
+    float: right;
+    margin-top: 13px;
+  }
+}
+
+.logo-container {
+  display: inline-block;
+}
+
+.user-container {
+  padding-left: 10px;
+  display: inline-block;
+}
+
+.user-title {
+  float: left;
+}

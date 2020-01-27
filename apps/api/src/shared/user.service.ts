@@ -12,8 +12,8 @@ export class UserService {
 	
 	
 	async create(registerDto: RegisterDto) {
-		const {username} = registerDto;
-		const user = await this.userModel.findOne({username});
+		const {email} = registerDto;
+		const user = await this.userModel.findOne({email});
 		if (user) {
 			throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
 		}
@@ -24,8 +24,8 @@ export class UserService {
 	}
 	
 	async findByLogin(loginDto: LoginDto) {
-		const {username, password} = loginDto;
-		const user = await this.userModel.findOne({username});
+		const {email, password} = loginDto;
+		const user = await this.userModel.findOne({email});
 		if (!user) {
 			throw new HttpException('Invalid username', HttpStatus.UNAUTHORIZED);
 		}

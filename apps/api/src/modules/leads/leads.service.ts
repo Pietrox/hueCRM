@@ -11,15 +11,22 @@ export class LeadsService {
 	}
 	
 	async findAll(): Promise<LeadsModel[]> {
-		return this.leadsModel.find().populate('owner');
+		return this.leadsModel.find();
 	}
+	
+	async leadModel(): Promise<any> {
+		const keys = this.leadsModel.findOne();
+		// @ts-ignore
+		return keys.schema.obj;
+	}
+	
 	
 	async findOne(id: string): Promise<LeadsModel> {
 		return this.leadsModel.findById(id).populate('owner');
 	}
 	
-	async create(leadsDto: LeadsDto) {
-		const lead = new this.leadsModel(leadsDto);
+	async create(leadsDto: LeadsDto): Promise<LeadsModel> {
+		const lead = await this.leadsModel.create(leadsDto);
 		await lead.save();
 		return lead;
 	}

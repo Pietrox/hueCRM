@@ -12,6 +12,7 @@ export enum ApiPathsEnum {
 	allLeads = 'allLeads',
 	createLead = 'createLead',
 	getLeadById = 'getLeadById',
+	leadModel = 'leadModel',
 	updateLeadById = 'updateLeadById',
 	deleteLeadById = 'deleteLeadById',
 	deleteLeadByEmail = 'deleteLeadById'

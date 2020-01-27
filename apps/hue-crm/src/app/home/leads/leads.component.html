@@ -1,0 +1,11 @@
+<nb-card *ngIf="settings && source" [nbSpinner]="spinner">
+    <nb-card-header>
+        Leads
+    </nb-card-header>
+
+    <nb-card-body #leadsBody nbSpinnerStatus="basic">
+        <ng2-smart-table #recordTableLeads (deleteConfirm)="onDeleteConfirm($event)" [settings]="settings"
+                         [source]="source">
+        </ng2-smart-table>
+    </nb-card-body>
+</nb-card>

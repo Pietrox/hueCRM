@@ -1,0 +1,20 @@
+<div class="header-container left">
+    <div class="logo-container">
+        <a (click)="toggleSidebar()" class="sidebar-toggle" href="#">
+            <nb-icon icon="menu-2-outline"></nb-icon>
+        </a>
+    </div>
+    <div class="user-container">
+        <nb-user [name]="userObject.username" [picture]="userObject.picture" [title]="userObject.role"
+                 size="large"></nb-user>
+    </div>
+</div>
+<div class="header-container right">
+    <nb-actions class="main-actions" size="small">
+        <nb-action icon="home-outline"></nb-action>
+        <nb-action icon="search-outline"></nb-action>
+        <nb-action icon="power-outline"></nb-action>
+        <nb-action icon="person-outline"></nb-action>
+        <nb-action [icon]="disabledIconConfig" disabled></nb-action>
+    </nb-actions>
+</div>
