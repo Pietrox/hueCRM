@@ -1,12 +1,14 @@
 import {ValidationPipe} from '@nestjs/common';
 import {NestFactory} from '@nestjs/core';
 import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
+import {WINSTON_MODULE_NEST_PROVIDER} from 'nest-winston';
 import {ApplicationModule} from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(
       ApplicationModule,
   );
+  app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
   const devMode = ApplicationModule.devMode;
   if (devMode === true) {
     const swaggerOptions = new DocumentBuilder()
