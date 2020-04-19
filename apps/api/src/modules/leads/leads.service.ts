@@ -1,13 +1,13 @@
-import {LeadsDto, LeadsUpdateDto} from '@huecrm/dto';
-import {LeadsModel} from '@huecrm/mongoose-models';
-import {Injectable} from '@nestjs/common';
-import {InjectModel} from '@nestjs/mongoose';
-import {Model} from 'mongoose';
+import { LeadsDto, LeadsUpdateDto } from "@huecrm/dto";
+import { LeadsModel } from "@huecrm/mongoose-models";
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
 
 
 @Injectable()
 export class LeadsService {
-	constructor(@InjectModel('Lead') private leadsModel: Model<LeadsModel>) {
+	constructor(@InjectModel("Lead") private leadsModel: Model<LeadsModel>) {
 	}
 	
 	async findAll(): Promise<LeadsModel[]> {
@@ -35,7 +35,7 @@ export class LeadsService {
 		return lead;
 	}
 	
-	async delete(email: string): Promise<LeadsModel> {
+	async delete(email): Promise<LeadsModel> {
 		const lead = await this.leadsModel.findOneAndDelete(email);
 		await lead.remove();
 		return lead;
