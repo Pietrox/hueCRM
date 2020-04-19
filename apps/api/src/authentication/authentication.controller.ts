@@ -8,7 +8,6 @@ import {UserService} from '../shared/user.service';
 import {AuthenticationService} from './authentication.service';
 
 @Controller(apiPaths.auth)
-@ApiBearerAuth()
 export class AuthenticationController {
 	constructor(
 		private  userService: UserService,
@@ -16,6 +15,7 @@ export class AuthenticationController {
 	) {
 	}
 	
+	@ApiBearerAuth()
 	@Get(apiPaths.allUsers)
 	@UseGuards(AuthGuard('jwt'), AdminGuard)
 	@ApiOperation({title: apiTags.userEndpoints, description: apiEndpointDecription.userAll})
@@ -47,6 +47,7 @@ export class AuthenticationController {
 		return {user, token};
 	}
 	
+	@ApiBearerAuth()
 	@Delete(apiPaths.delete)
 	@ApiOperation({title: apiTags.userEndpoints, description: apiEndpointDecription.userDelete})
 	async deleteByLogin(@Body() deleteUserDto: DeleteUserDto) {
