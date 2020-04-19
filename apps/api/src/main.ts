@@ -6,7 +6,7 @@ import {ApplicationModule} from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(
-      ApplicationModule,
+      ApplicationModule
   );
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
   const devMode = ApplicationModule.devMode;

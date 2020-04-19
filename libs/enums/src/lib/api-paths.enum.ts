@@ -6,15 +6,18 @@ export enum ApiPathsEnum {
 	register = 'register',
 	user = 'user',
 	delete = 'delete',
+	create = 'create',
 	id = ':id',
 	username = ':username',
 	allUsers = 'allUsers',
 	allLeads = 'allLeads',
 	createLead = 'createLead',
+	createLeadMany = 'createLeadMany',
 	getLeadById = 'getLeadById',
 	leadModel = 'leadModel',
 	updateLeadById = 'updateLeadById',
 	deleteLeadById = 'deleteLeadById',
-	deleteLeadByEmail = 'deleteLeadById'
+	deleteLeadByEmail = 'deleteLeadById',
+	moduleModel = 'moduleModel',
 	
 }

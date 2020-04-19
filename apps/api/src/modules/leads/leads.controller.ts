@@ -1,13 +1,17 @@
 import {LeadsDto, LeadsUpdateDto} from '@huecrm/dto';
 import {apiEndpointDecription, apiParams, apiPaths, apiTags} from '@huecrm/enums';
 import {LeadsModel} from '@huecrm/mongoose-models';
-import {Body, Controller, Delete, Get, Param, Post, Put, Query} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Inject, Param, Post, Put, Query} from '@nestjs/common';
 import {ApiOperation} from '@nestjs/swagger';
+import {Logger} from 'winston';
 import {LeadsService} from './leads.service';
 
 @Controller(apiPaths.leads)
 export class LeadsController {
-	constructor(private leadsService: LeadsService) {
+	constructor(
+		@Inject('winston') private readonly logger: Logger,
+		private leadsService: LeadsService
+	) {
 	}
 	
 	@Get(apiPaths.allLeads)
@@ -16,16 +20,16 @@ export class LeadsController {
 		return await this.leadsService.findAll();
 	}
 	
-	@Get(apiPaths.leadModel)
-	@ApiOperation({title: apiTags.leadEndpoints, description: apiEndpointDecription.leadModel})
-	async leadModel(): Promise<any> {
-		return await this.leadsService.leadModel();
-	}
-	
 	@Post(apiPaths.createLead)
 	@ApiOperation({title: apiTags.leadEndpoints, description: apiEndpointDecription.leadCreate})
 	async create(@Body() lead: LeadsDto) {
 		return await this.leadsService.create(lead);
+	}
+	
+	@Post(apiPaths.createLeadMany)
+	@ApiOperation({title: apiTags.leadEndpoints, description: apiEndpointDecription.leadCreate})
+	async createMany(@Body() lead: LeadsDto[]) {
+		return await this.leadsService.createMany(lead);
 	}
 	
 	@Get(apiPaths.getLeadById)

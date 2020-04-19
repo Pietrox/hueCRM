@@ -6,6 +6,7 @@ import {ApplicationController} from './app.controller';
 import {ApplicationService} from './app.service';
 import {AuthenticationModule} from './authentication/authentication.module';
 import {LeadsModule} from './modules/leads/leads.module';
+import {ModuleModelsModule} from './modules/module-models/module-models.module';
 import {ConfigurationService} from './shared/configuration.service';
 import {SharedModule} from './shared/shared.module';
 
@@ -37,7 +38,7 @@ import {SharedModule} from './shared/shared.module';
 		}),
 		MongooseModule.forRoot(process.env.DATABASE),
 		AuthenticationModule, SharedModule,
-		LeadsModule,
+		ModuleModelsModule, LeadsModule,
 	],
 	controllers: [ApplicationController],
 	providers: [ApplicationService],

@@ -1,0 +1,47 @@
+{
+  "add": {
+    "addButtonContent": "<i class=\"nb-plus\"></i>",
+    "createButtonContent": "<i class=\"nb-checkmark\"></i>",
+    "cancelButtonContent": "<i class=\"nb-close\"></i>"
+  },
+  "edit": {
+    "editButtonContent": "<i class=\"nb-edit\"></i>",
+    "saveButtonContent": "<i class=\"nb-checkmark\"></i>",
+    "cancelButtonContent": "<i class=\"nb-close\"></i>"
+  },
+  "delete": {
+    "deleteButtonContent": "<i class=\"nb-trash\"></i>",
+    "confirmDelete": true
+  },
+  "columns": {
+    "name": {
+      "title": "Name",
+      "type": "String"
+    },
+    "email": {
+      "title": "E-mail",
+      "type": "String"
+    },
+    "phone": {
+      "title": "Phone",
+      "type": "String"
+    },
+    "owner": {
+      "title": "Assigned To",
+      "type": "String"
+    },
+    "address": {
+      "title": "Address",
+      "type": "String"
+    },
+    "created": {
+      "title": "Created At",
+      "type": "String"
+    }
+  },
+  "pager": {
+    "display": true,
+    "perPage": 100
+  }
+}
+

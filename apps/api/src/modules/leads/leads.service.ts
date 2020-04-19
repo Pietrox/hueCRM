@@ -14,13 +14,6 @@ export class LeadsService {
 		return this.leadsModel.find();
 	}
 	
-	async leadModel(): Promise<any> {
-		const keys = this.leadsModel.findOne();
-		// @ts-ignore
-		return keys.schema.obj;
-	}
-	
-	
 	async findOne(id: string): Promise<LeadsModel> {
 		return this.leadsModel.findById(id).populate('owner');
 	}
@@ -30,6 +23,11 @@ export class LeadsService {
 		await lead.save();
 		return lead;
 	}
+	
+	async createMany(leadsDto: LeadsDto[]): Promise<LeadsModel[]> {
+		return this.leadsModel.insertMany(leadsDto);
+	}
+	
 	
 	async update(id: string, leadsDto: LeadsUpdateDto): Promise<LeadsModel> {
 		const lead = await this.leadsModel.findById(id);

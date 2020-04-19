@@ -2,35 +2,29 @@ import * as mongoose from 'mongoose';
 
 export const LeadsSchema = new mongoose.Schema({
 	name: {
-		title: 'Name',
 		type: String,
-		required: true,
+		required: true
 	},
 	email: {
-		title: 'Email',
 		type: String,
-		required: true,
+		required: true
 	},
 	address: {
-		title: 'Address',
 		type: String,
-		required: true,
+		required: false
 	},
 	phone: {
-		title: 'Address',
 		type: String,
-		required: true,
+		required: true
 	},
 	created: {
-		title: 'Created Date',
 		type: Date,
-		required: false,
+		required: true,
 		default: Date.now,
 	},
 	owner: {
-		title: 'Assigned To',
 		type: String,
-		required: false,
+		required: true,
 		default: 'Admin',
 	}
 });

@@ -1,11 +1,12 @@
-<nb-card *ngIf="settings && source" [nbSpinner]="spinner">
+<nb-card *ngIf="settings" [nbSpinner]="spinner">
     <nb-card-header>
         Leads
     </nb-card-header>
 
-    <nb-card-body #leadsBody nbSpinnerStatus="basic">
-        <ng2-smart-table #recordTableLeads (deleteConfirm)="onDeleteConfirm($event)" [settings]="settings"
-                         [source]="source">
+    <nb-card-body nbSpinnerStatus="basic">
+        <input #search (keydown.enter)="onSearch(search.value)" class="search" placeholder="Search..." type="text">
+        <ng2-smart-table (deleteConfirm)="onDeleteConfirm($event)" [settings]="settings"
+                         [source]="data">
         </ng2-smart-table>
     </nb-card-body>
 </nb-card>
