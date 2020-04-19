@@ -1,16 +1,16 @@
-import {userParamExample} from '@huecrm/enums';
-import {ApiModelProperty} from '@nestjs/swagger';
+import { userParamExample } from "@huecrm/enums";
+import { ApiProperty } from "@nestjs/swagger";
 
-import {Type} from 'class-transformer';
-import {IsNotEmpty, IsString} from 'class-validator';
+import { Type } from "class-transformer";
+import { IsNotEmpty, IsString } from "class-validator";
 
 export class AuthenticationDto {
-	@ApiModelProperty({default: userParamExample.password})
+	@ApiProperty({ default: userParamExample.password })
 	@IsNotEmpty()
 	@IsString()
 	@Type(() => String)
 	username: string;
-	@ApiModelProperty({default: userParamExample.password})
+	@ApiProperty({ default: userParamExample.password })
 	@IsNotEmpty()
 	@IsString()
 	@Type(() => String)

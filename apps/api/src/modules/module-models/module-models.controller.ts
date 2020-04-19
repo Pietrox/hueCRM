@@ -1,8 +1,8 @@
-import {apiEndpointDecription, apiPaths, apiTags} from '@huecrm/enums';
-import {Controller, Get} from '@nestjs/common';
-import {ApiOperation} from '@nestjs/swagger';
-import {ModuleModelDto} from '../../../../../libs/dto/src/lib/module.model.dto';
-import {ModuleModelsService} from './module-models.service';
+import { apiEndpointDecription, apiPaths, apiTags } from "@huecrm/enums";
+import { Controller, Get } from "@nestjs/common";
+import { ApiOperation } from "@nestjs/swagger";
+import { ModuleModelDto } from "../../../../../libs/dto/src/lib/module.model.dto";
+import { ModuleModelsService } from "./module-models.service";
 
 @Controller(apiPaths.moduleModel)
 export class ModuleModelsController {
@@ -10,13 +10,13 @@ export class ModuleModelsController {
 	}
 	
 	@Get(apiPaths.leads)
-	@ApiOperation({title: apiTags.moduleModelEndpoints, description: apiEndpointDecription.getModuleModelLeads})
+	@ApiOperation({ summary: apiTags.moduleModelEndpoints, description: apiEndpointDecription.getModuleModelLeads })
 	async getLeads(): Promise<ModuleModelDto> {
 		return await this.moduleModelsService.getLeads();
 	}
 	
 	// @Post(apiPaths.create)
-	// @ApiOperation({title: apiTags.moduleModelEndpoints, description: apiEndpointDecription.createModuleModelLeads})
+	// @ApiOperation({summary: apiTags.moduleModelEndpoints, description: apiEndpointDecription.createModuleModelLeads})
 	// async create(@Body() moduleModelDto: ModuleModelDto) {
 	// 	return await this.moduleModelsService.create(moduleModelDto);
 	// }
