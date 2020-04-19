@@ -1,25 +1,17 @@
 import { userParamExample } from "@huecrm/enums";
 import { ApiProperty } from "@nestjs/swagger";
 import { Type } from "class-transformer";
-import { IsEmail, IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsString, MaxLength, MinLength } from "class-validator";
+import { LoginDto } from "./login.dto";
 
 
-export class RegisterDto {
+export class RegisterDto extends LoginDto {
 	@ApiProperty({ default: userParamExample.username })
-	@IsNotEmpty()
 	@IsString()
+	@MinLength(4)
+	@MaxLength(30)
 	@Type(() => String)
 	username: string;
-	@ApiProperty({ default: userParamExample.email })
-	@IsNotEmpty()
-	@IsEmail()
-	@Type(() => String)
-	email: string;
-	@ApiProperty({ default: userParamExample.password })
-	@IsNotEmpty()
-	@IsString()
-	@Type(() => String)
-	password: string;
 	@ApiProperty({ default: userParamExample.role })
 	@IsNotEmpty()
 	@IsString()

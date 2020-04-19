@@ -1,16 +1,13 @@
-import {UserSchema} from '@huecrm/schemas';
-import {Module} from '@nestjs/common';
-import {APP_FILTER, APP_INTERCEPTOR} from '@nestjs/core';
-import {MongooseModule} from '@nestjs/mongoose';
-import {ConfigurationService} from './configuration.service';
-import {HttpExceptionFilter} from './filters/http-exception.filter';
-import {LoggingInterceptor} from './logging.interceptor';
-import {UserService} from './user.service';
+import { Module } from "@nestjs/common";
+import { APP_FILTER, APP_INTERCEPTOR } from "@nestjs/core";
+import { ConfigurationService } from "./configuration.service";
+import { HttpExceptionFilter } from "./filters/http-exception.filter";
+import { LoggingInterceptor } from "./logging.interceptor";
 
 
 @Module({
-	imports: [MongooseModule.forFeature([{name: 'User', schema: UserSchema}])],
-	providers: [ConfigurationService, UserService,
+	imports: [],
+	providers: [ConfigurationService,
 		{
 			provide: APP_FILTER,
 			useClass: HttpExceptionFilter
@@ -19,6 +16,6 @@ import {UserService} from './user.service';
 			provide: APP_INTERCEPTOR,
 			useClass: LoggingInterceptor
 		}],
-	exports: [ConfigurationService, UserService]
+	exports: [ConfigurationService]
 })
 export class SharedModule {}

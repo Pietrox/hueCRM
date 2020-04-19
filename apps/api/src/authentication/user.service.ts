@@ -1,23 +1,21 @@
-import {DeleteUserDto, LoginDto, RegisterDto} from '@huecrm/dto';
-import {UserModel} from '@huecrm/mongoose-models';
-import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
-import {InjectModel} from '@nestjs/mongoose';
-import * as bcrypt from 'bcryptjs';
-import {Model} from 'mongoose';
+import { DeleteUserDto, LoginDto, RegisterDto } from "@huecrm/dto";
+import { UserModel } from "@huecrm/mongoose-models";
+import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import * as bcrypt from "bcryptjs";
+import { Model } from "mongoose";
 
 @Injectable()
 export class UserService {
-	constructor(@InjectModel('User') private userModel: Model<UserModel>) {
+	constructor(@InjectModel("User") private userModel: Model<UserModel>) {
 	}
 	
 	
 	async create(registerDto: RegisterDto) {
-		const {email} = registerDto;
-		const user = await this.userModel.findOne({email});
+		const user = await this.userModel.findOne(registerDto);
 		if (user) {
-			throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
+			throw new HttpException("User already exists", HttpStatus.BAD_REQUEST);
 		}
-		
 		const createdUser = new this.userModel(registerDto);
 		await createdUser.save();
 		return this.sanitizeUser(createdUser);
@@ -29,7 +27,6 @@ export class UserService {
 		if (!user) {
 			throw new HttpException('Invalid username', HttpStatus.UNAUTHORIZED);
 		}
-		
 		if (await bcrypt.compare(password, user.password)) {
 			return this.sanitizeUser(user);
 		} else {
@@ -47,13 +44,13 @@ export class UserService {
 	}
 	
 	async findByPayload(payload: any) {
-		const {username} = payload;
-		return this.userModel.findOne({username});
+		const { username } = payload;
+		return this.userModel.findOne({ username });
 	}
 	
-	sanitizeUser(user: UserModel) {
+	sanitizeUser(user) {
 		const sanitized = user.toObject();
-		delete sanitized['password'];
+		delete sanitized["password"];
 		return sanitized;
 	}
 }
