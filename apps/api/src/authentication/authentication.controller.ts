@@ -4,12 +4,10 @@ import { Body, Controller, Delete, Get, Post, Query, UseGuards, ValidationPipe }
 import { ApiBearerAuth, ApiOperation } from "@nestjs/swagger";
 import { AdminGuard } from "../guards/admin.guard";
 import { AuthenticationService } from "./authentication.service";
-import { UserService } from "./user.service";
 
-@Controller(apiPaths.auth)
+@Controller(apiPaths.users)
 export class AuthenticationController {
 	constructor(
-		private  userService: UserService,
 		private authenticationService: AuthenticationService
 	) {
 	}
@@ -19,39 +17,29 @@ export class AuthenticationController {
 	@UseGuards(AdminGuard)
 	@ApiOperation({ summary: apiTags.userEndpoints, description: apiEndpointDecription.userAll })
 	async findAll(@Query() user: any) {
-		return await this.userService.findAll();
+		return await this.authenticationService.findAll();
 	}
 	
 	@Post(apiPaths.login)
 	@ApiOperation({ summary: apiTags.userEndpoints, description: apiEndpointDecription.userLogin })
-	async login(@Body(ValidationPipe) loginDto: LoginDto) {
-		const user = await this.userService.findByLogin(loginDto);
-		const payload = {
-			username: user.username,
-			role: user.role
-		};
-		const token = await this.authenticationService.signPayload(payload);
-		return { user, token };
+	async login(@Body() loginDto: LoginDto) {
+		const user = await this.authenticationService.login(loginDto);
+		return { user };
 	}
 	
 	@Post(apiPaths.register)
 	@ApiOperation({ summary: apiTags.userEndpoints, description: apiEndpointDecription.userRegister })
 	async register(@Body(ValidationPipe) registerDto: RegisterDto) {
-		const user = await this.userService.create(registerDto);
-		const payload = {
-			username: user.username,
-			role: user.role
-		};
-		const token = await this.authenticationService.signPayload(payload);
-		return { user, token };
+		const user = await this.authenticationService.create(registerDto);
+		return { user };
 	}
 	
 	@ApiBearerAuth()
 	@Delete(apiPaths.delete)
 	@ApiOperation({ summary: apiTags.userEndpoints, description: apiEndpointDecription.userDelete })
 	async deleteByLogin(@Body() deleteUserDto: DeleteUserDto) {
-		await this.userService.deleteByLogin(deleteUserDto);
-		return 'User has been deleted';
+		await this.authenticationService.deleteByLogin(deleteUserDto);
+		return "User has been deleted";
 		
 	}
 }
