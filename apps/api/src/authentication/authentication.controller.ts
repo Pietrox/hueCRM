@@ -1,7 +1,19 @@
-import { DeleteUserDto, LoginDto, RegisterDto } from "@huecrm/dto";
+import { AuthenticationResponse, DeleteUserDto, LoginDto, RegisterDto, UserResponse } from "@huecrm/dto";
 import { apiEndpointDecription, apiPaths, apiTags } from "@huecrm/enums";
-import { Body, Controller, Delete, Get, Post, Query, UseGuards, ValidationPipe } from "@nestjs/common";
-import { ApiBearerAuth, ApiOperation } from "@nestjs/swagger";
+import {
+	Body,
+	ClassSerializerInterceptor,
+	Controller,
+	Delete,
+	Get,
+	Post,
+	Query,
+	SerializeOptions,
+	UseGuards,
+	UseInterceptors,
+	ValidationPipe
+} from "@nestjs/common";
+import { ApiBearerAuth, ApiBody, ApiCreatedResponse, ApiOperation, ApiUnauthorizedResponse } from "@nestjs/swagger";
 import { AdminGuard } from "../guards/admin.guard";
 import { AuthenticationService } from "./authentication.service";
 
@@ -21,17 +33,24 @@ export class AuthenticationController {
 	}
 	
 	@Post(apiPaths.login)
+	@UseInterceptors(ClassSerializerInterceptor)
+	@SerializeOptions({ groups: ["password"] })
+	@ApiCreatedResponse({ description: "User Login" })
+	@ApiUnauthorizedResponse({ description: "Invalid Credentials" })
 	@ApiOperation({ summary: apiTags.userEndpoints, description: apiEndpointDecription.userLogin })
-	async login(@Body() loginDto: LoginDto) {
+	@ApiBody({ type: LoginDto })
+	async login(@Body(ValidationPipe) loginDto: LoginDto): Promise<UserResponse> {
 		const user = await this.authenticationService.login(loginDto);
-		return { user };
+		return user;
 	}
 	
 	@Post(apiPaths.register)
+	@UseInterceptors(ClassSerializerInterceptor)
 	@ApiOperation({ summary: apiTags.userEndpoints, description: apiEndpointDecription.userRegister })
-	async register(@Body(ValidationPipe) registerDto: RegisterDto) {
-		const user = await this.authenticationService.create(registerDto);
-		return { user };
+	@ApiBody({ type: RegisterDto })
+	async register(@Body(ValidationPipe) registerDto: RegisterDto): Promise<AuthenticationResponse> {
+		const user = await this.authenticationService.register(registerDto);
+		return user;
 	}
 	
 	@ApiBearerAuth()

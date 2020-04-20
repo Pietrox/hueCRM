@@ -1,3 +1,4 @@
+import { AuthenticationPayload } from "@huecrm/dto";
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
 import { ExtractJwt, Strategy } from "passport-jwt";
@@ -13,7 +14,7 @@ export class AuthenticationJwtStrategy extends PassportStrategy(Strategy) {
 		});
 	}
 	
-	async validate(payload) {
+	async validate(payload: AuthenticationPayload) {
 		const user = await this.authenticationService.validateUser(payload);
 		if (!user) {
 			return new HttpException(
