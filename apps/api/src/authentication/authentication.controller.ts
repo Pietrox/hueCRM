@@ -1,20 +1,7 @@
 import { AuthenticationResponse, DeleteUserDto, LoginDto, RegisterDto, UserResponse } from "@huecrm/dto";
 import { apiEndpointDecription, apiPaths, apiTags } from "@huecrm/enums";
-import {
-	Body,
-	ClassSerializerInterceptor,
-	Controller,
-	Delete,
-	Get,
-	Post,
-	Query,
-	SerializeOptions,
-	UseGuards,
-	UseInterceptors,
-	ValidationPipe
-} from "@nestjs/common";
+import { Body, Controller, Delete, Get, Post, Query, SerializeOptions, ValidationPipe } from "@nestjs/common";
 import { ApiBearerAuth, ApiBody, ApiCreatedResponse, ApiOperation, ApiUnauthorizedResponse } from "@nestjs/swagger";
-import { AdminGuard } from "../guards/admin.guard";
 import { AuthenticationService } from "./authentication.service";
 
 @Controller(apiPaths.users)
@@ -26,14 +13,12 @@ export class AuthenticationController {
 	
 	@ApiBearerAuth()
 	@Get(apiPaths.allUsers)
-	@UseGuards(AdminGuard)
 	@ApiOperation({ summary: apiTags.userEndpoints, description: apiEndpointDecription.userAll })
 	async findAll(@Query() user: any) {
 		return await this.authenticationService.findAll();
 	}
 	
 	@Post(apiPaths.login)
-	@UseInterceptors(ClassSerializerInterceptor)
 	@SerializeOptions({ groups: ["password"] })
 	@ApiCreatedResponse({ description: "User Login" })
 	@ApiUnauthorizedResponse({ description: "Invalid Credentials" })
@@ -45,7 +30,6 @@ export class AuthenticationController {
 	}
 	
 	@Post(apiPaths.register)
-	@UseInterceptors(ClassSerializerInterceptor)
 	@ApiOperation({ summary: apiTags.userEndpoints, description: apiEndpointDecription.userRegister })
 	@ApiBody({ type: RegisterDto })
 	async register(@Body(ValidationPipe) registerDto: RegisterDto): Promise<AuthenticationResponse> {

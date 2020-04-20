@@ -17,7 +17,6 @@ async function bootstrap() {
       .setBasePath("api")
       .setDescription("Below You can test out the backend api and read the description of all endpoints and it`s examples")
       .setVersion("0.0.8")
-      
       .setLicense("MIT License", "https://github.com/hueSoft/hueCRM")
       .addBearerAuth({
           type: "http",
@@ -26,7 +25,7 @@ async function bootstrap() {
         },
         "access-token"
       )
-        .build();
+      .build();
     const swaggerDoc = SwaggerModule.createDocument(app, swaggerOptions);
     SwaggerModule.setup("api", app, swaggerDoc, {
       swaggerUrl: `${ApplicationModule.host}/api/docs-json`,
