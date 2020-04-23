@@ -31,7 +31,7 @@ npm run serve:hue-crm
 nx serve api 
 
 ```
-To access swagger with default development config go to http://localhost:3000/api/docs
+To access swagger with default development config go to http://localhost:3000/api
 There is still no installation for first user. So you need to setup MongoDB and set the values for user collection according to the ./libs/schemas/src/lib/user.schema.ts
 ## Support
 
