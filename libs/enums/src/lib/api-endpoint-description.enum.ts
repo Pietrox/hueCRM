@@ -14,5 +14,7 @@ export enum ApiEndpointDescriptionEnum {
     leadCreate = 'Create Lead',
     leadGetById = 'Get Lead By Id',
     leadUpdateById = 'Lead Update By Id',
-    leadDelete = 'Delete Lead'
+    leadDelete = 'Delete Lead',
+    getModuleModelLeads = 'Get Leads Module Model',
+    createModuleModelLeads = 'Create/Update Leads Module Model'
 }

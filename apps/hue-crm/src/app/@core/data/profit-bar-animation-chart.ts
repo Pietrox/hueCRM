@@ -1,5 +1,5 @@
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 export abstract class ProfitBarAnimationChartData {
-	abstract getChartData(): Observable<{ firstLine: number[]; secondLine: number[]; }>;
+  abstract getChartData(): Observable<{ firstLine: number[]; secondLine: number[]; }>;
 }

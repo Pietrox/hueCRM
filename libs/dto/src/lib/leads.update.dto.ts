@@ -1,22 +1,22 @@
-import {leadsParamExample} from '@huecrm/enums';
-import {ApiModelPropertyOptional} from '@nestjs/swagger';
-import {IsString} from 'class-validator';
+import { leadsParamExample } from "@huecrm/enums";
+import { ApiPropertyOptional } from "@nestjs/swagger";
+import { IsString } from "class-validator";
 
 export class LeadsUpdateDto {
 	
-	@ApiModelPropertyOptional({description: leadsParamExample.name})
+	@ApiPropertyOptional({ description: leadsParamExample.name })
 	@IsString()
 	name: string;
-	@ApiModelPropertyOptional({description: leadsParamExample.email})
+	@ApiPropertyOptional({ description: leadsParamExample.email })
 	@IsString()
 	email: string;
-	@ApiModelPropertyOptional({description: leadsParamExample.address})
+	@ApiPropertyOptional({ description: leadsParamExample.address })
 	@IsString()
 	address: string;
-	@ApiModelPropertyOptional({description: leadsParamExample.phone})
+	@ApiPropertyOptional({ description: leadsParamExample.phone })
 	@IsString()
 	phone: string;
-	@ApiModelPropertyOptional({description: leadsParamExample.owner})
+	@ApiPropertyOptional({ description: leadsParamExample.owner })
 	@IsString()
 	owner: string;
 }

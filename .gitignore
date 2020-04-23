@@ -39,3 +39,4 @@ testem.log
 Thumbs.db
 .env
 /apps/hue-crm/src/environments
+package-lock.json

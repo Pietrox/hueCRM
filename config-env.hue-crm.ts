@@ -29,6 +29,8 @@ const API_GET_LEAD_BY_ID = process.env.GET_LEAD_BY_ID;
 const API_UPDATE_LEAD = process.env.UPDATE_LEAD;
 const API_DELETE_LEAD = process.env.DELETE_LEAD;
 
+const API_MODEL_LEAD_COLUMN = process.env.API_MODEL_LEAD_COLUMN;
+
 const targetPath = `./apps/hue-crm/src/environments/environment.ts`;
 const envConfigFile = `export const environment = {
     production: false,
@@ -55,7 +57,8 @@ const envConfigFile = `export const environment = {
 	API_CREATE_LEAD:'${API_CREATE_LEAD}',
 	API_GET_LEAD_BY_ID:'${API_GET_LEAD_BY_ID}',
 	API_UPDATE_LEAD:'${API_UPDATE_LEAD}',
-	API_DELETE_LEAD:'${API_DELETE_LEAD}'
+	API_DELETE_LEAD:'${API_DELETE_LEAD}',
+	API_MODEL_LEAD_COLUMN:'${API_MODEL_LEAD_COLUMN}',
     };`
 ;
 fs.writeFile(targetPath, envConfigFile, function (err) {

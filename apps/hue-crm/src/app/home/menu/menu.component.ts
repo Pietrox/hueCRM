@@ -1,7 +1,7 @@
-import {Component, OnDestroy} from '@angular/core';
-import {NbMenuService} from '@nebular/theme';
-import {takeWhile} from 'rxjs/operators';
-import {MenuItems} from '../home-menu';
+import { Component, OnDestroy } from '@angular/core';
+import { NbMenuService } from '@nebular/theme';
+import { takeWhile } from 'rxjs/operators';
+import { MenuItems } from '../home-menu';
 
 @Component({
   selector: 'huecrm-menu',
@@ -17,23 +17,23 @@ export class MenuComponent implements OnDestroy {
   }
   
   ngOnDestroy() {
-    this.alive = false;
+	this.alive = false;
   }
   
   collapseAll() {
-    this.menuService.collapseAll('menu');
+	this.menuService.collapseAll('menu');
   }
   
   navigateHome() {
-    this.menuService.navigateHome('menu');
+	this.menuService.navigateHome('menu');
   }
   
   getSelectedItem() {
-    this.menuService.getSelectedItem('menu')
-        .pipe(takeWhile(() => this.alive))
-        .subscribe((menuBag) => {
-          this.selectedItem = menuBag.item.title;
-        });
+	this.menuService.getSelectedItem('menu')
+	  .pipe(takeWhile(() => this.alive))
+	  .subscribe((menuBag) => {
+		this.selectedItem = menuBag.item.title;
+	  });
   }
   
 }

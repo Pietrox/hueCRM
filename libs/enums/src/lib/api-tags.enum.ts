@@ -1,4 +1,5 @@
 export enum ApiTagsEnum {
 	userEndpoints = 'User Endpoints',
-	leadEndpoints = 'Leads Module Endpoints'
+	leadEndpoints = 'Leads Module Endpoints',
+	moduleModelEndpoints = 'Modules Model Endpoints'
 }

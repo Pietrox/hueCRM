@@ -1,36 +1,44 @@
 import * as mongoose from 'mongoose';
 
+const autoIncrement = require('mongoose-auto-increment');
+
+
 export const LeadsSchema = new mongoose.Schema({
-	name: {
-		title: 'Name',
-		type: String,
-		required: true,
-	},
-	email: {
-		title: 'Email',
-		type: String,
-		required: true,
-	},
-	address: {
-		title: 'Address',
-		type: String,
-		required: true,
+  leadId: {
+	type: Number,
+	required: false
+  },
+  name: {
+	type: String,
+	required: true
+  },
+  email: {
+	type: String,
+	required: true
+  },
+  address: {
+	type: String,
+		required: false
 	},
 	phone: {
-		title: 'Address',
 		type: String,
-		required: true,
+		required: true
 	},
-	created: {
-		title: 'Created Date',
-		type: Date,
-		required: false,
-		default: Date.now,
-	},
-	owner: {
-		title: 'Assigned To',
-		type: String,
-		required: false,
-		default: 'Admin',
-	}
+  created: {
+	type: Date,
+	required: false,
+	default: Date.now
+  },
+  owner: {
+	type: String,
+	required: true,
+	default: 'Admin'
+  }
+});
+
+autoIncrement.initialize(mongoose.createConnection(process.env.DATABASE));
+LeadsSchema.plugin(autoIncrement.plugin, {
+  model: 'Leads',
+  field: 'leadId',
+  startAt: 1
 });

@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {MenuItems} from './home-menu';
+import { Component, OnInit } from '@angular/core';
+import { MenuItems } from './home-menu';
 
 @Component({
   selector: 'huecrm-home',

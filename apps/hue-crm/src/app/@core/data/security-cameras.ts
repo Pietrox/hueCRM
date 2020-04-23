@@ -1,10 +1,10 @@
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 export interface Camera {
-	title: string;
-	source: string;
+  title: string;
+  source: string;
 }
 
 export abstract class SecurityCamerasData {
-	abstract getCamerasData(): Observable<Camera[]>;
+  abstract getCamerasData(): Observable<Camera[]>;
 }

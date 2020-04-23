@@ -1,5 +1,5 @@
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 export abstract class TrafficChartData {
-	abstract getTrafficChartData(): Observable<number[]>;
+  abstract getTrafficChartData(): Observable<number[]>;
 }
