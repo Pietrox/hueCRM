@@ -1,7 +1,7 @@
 <p align="center">
   <a href="http://huecrm.com/" target="blank"><img src="https://i.postimg.cc/nVdnWHrT/hueCRM.png" width="320" alt="Nest Logo" /></a>
 </p>
-  <p align="center">Modern CRM based on NestJS framework backend, MongoDB database, Angular 8 frontend and Nebular </a>.</p>
+  <p align="center">Modern CRM based on NestJS framework backend, MongoDB database, Angular 9 frontend and Nebular </a>.</p>
     <p align="center">
 
 
