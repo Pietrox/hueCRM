@@ -1,7 +1,8 @@
 export enum ApiParamsEnum {
     user = 'user',
-    id = 'id',
-    username = 'username',
-    password = 'password',
-    email = 'email'
+	id = 'id',
+	leadId = 'leadId',
+	username = 'username',
+	password = 'password',
+	email = 'email'
 }

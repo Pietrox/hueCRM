@@ -1,8 +1,8 @@
-import { userParamExample } from "@huecrm/enums";
-import { ApiProperty } from "@nestjs/swagger";
-import { Type } from "class-transformer";
+import { userParamExample } from '@huecrm/enums';
+import { ApiProperty } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 
-import { IsEmail, IsNotEmpty, IsString, MaxLength, MinLength } from "class-validator";
+import { IsEmail, IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator';
 
 export class LoginDto {
   @ApiProperty({ default: userParamExample.username })
@@ -49,18 +49,19 @@ export class DeleteUserDto {
   
 }
 
-export class AuthenticationPayload {
+export interface JwtPayload {
   username: string;
+  email: string;
+  role: string;
 }
 
 export interface UserResponse {
-  email: string;
   username: string;
+  email: string;
   role: string;
-  password: string;
 }
 
-export interface AuthenticationResponse extends UserResponse {
+export interface AuthenticationResponse {
   token: string;
 }
 
