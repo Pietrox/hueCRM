@@ -1,4 +1,4 @@
-<p align="center">Modern CRM based on NestJS framework backend, MongoDB database, Angular 8 frontend and Nebular.</p>
+<p align="center">Modern CRM based on NestJS framework backend, MongoDB database, Angular 9 frontend and Nebular </a>.</p>
 
 
 
@@ -13,6 +13,7 @@ Seeding is finished. The project contains:
 - Swagger documentation
 
 More advanced version of this application, but with different MIT license you will soon find under https://gitlab.com/huesoftware
+
 ## Installation
 
 ```bash
@@ -36,7 +37,7 @@ npm run serve:hue-crm
 nx serve api 
 
 ```
-To access swagger with default development config go to http://localhost:3000/api/docs
+To access swagger with default development config go to http://localhost:3000/api
 There is still no installation for first user. So you need to setup MongoDB and set the values for user collection according to the ./libs/schemas/src/lib/user.schema.ts
 ## Support
 
