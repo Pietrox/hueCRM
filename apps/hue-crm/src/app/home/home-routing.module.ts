@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { AuthGuard } from '../auth-guard.service';
 import { HomeComponent } from './home.component';
 import { LeadsComponent } from './leads/leads.component';
 
@@ -11,7 +12,8 @@ export const pagesRoutes: Routes = [
 	children: [
 	  {
 		path: environment.LEADS_URL,
-		component: LeadsComponent
+		component: LeadsComponent,
+		canActivate: [AuthGuard]
 	  }
 	]
   }

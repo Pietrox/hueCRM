@@ -1,7 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
   NbDatepickerModule,
@@ -14,10 +15,12 @@ import {
   NbUserModule,
   NbWindowModule
 } from '@nebular/theme';
+import { environment } from '../environments/environment';
 import { CoreModule } from './@core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth-guard.service';
+import { AuthInterceptor } from './auth/auth.interceptor';
 import { AuthModule } from './auth/auth.module';
 
 
@@ -41,9 +44,49 @@ import { AuthModule } from './auth/auth.module';
 	CoreModule.forRoot(),
 	NbEvaIconsModule,
 	NbUserModule,
-	AuthModule
+	AuthModule,
+	NbAuthModule.forRoot({
+	  strategies: [
+		NbPasswordAuthStrategy.setup({
+		  name: 'email',
+		  baseEndpoint: environment.BACKEND_URL,
+		  login: {
+			endpoint: environment.LOGIN,
+			redirect: {
+			  success: environment.HOME_URL,
+			  failure: null
+			}
+		  },
+		  register: {
+			endpoint: environment.REGISTER,
+			redirect: {
+			  success: environment.HOME_URL,
+			  failure: null
+			}
+		  },
+		  token: {
+			class: NbAuthJWTToken,
+			key: 'token'
+		  }
+		})
+	  ],
+	  forms: {
+		login: {
+		  redirectDelay: 1,
+		  showMessages: {
+			success: true
+		  }
+		}
+	  }
+	})
   ],
-  providers: [AppComponent, AuthGuard],
+  providers: [AppComponent, AuthGuard,
+	{
+	  provide: HTTP_INTERCEPTORS,
+	  useClass: AuthInterceptor,
+	  multi: true
+	}
+  ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })

@@ -1,19 +1,41 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Injectable, Injector } from '@angular/core';
+import { NbAuthService, NbAuthToken } from '@nebular/auth';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-	
-	return next.handle(request).pipe(map((response: HttpResponse<any>) => {
-	  const userResponse = response.body;
-	  if (userResponse) {
-		localStorage.setItem('userData', JSON.stringify(userResponse.user));
-		return response;
-	  }
-	  
-	}));
+  
+  constructor(private injector: Injector) {
   }
+  
+  protected get authService(): NbAuthService {
+	return this.injector.get(NbAuthService);
+  }
+  
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+	return this.authService.isAuthenticatedOrRefresh()
+	  .pipe(
+		switchMap(authenticated => {
+		  if (authenticated) {
+			return this.authService.getToken().pipe(
+			  switchMap((token: NbAuthToken) => {
+				const JWT = `Bearer ${token.getValue()}`;
+				console.log('weszlo');
+				req = req.clone({
+				  setHeaders: {
+					Authorization: JWT
+				  }
+				});
+				return next.handle(req);
+			  })
+			);
+		  } else {
+			return next.handle(req);
+		  }
+		})
+	  );
+  }
+  
 }

@@ -1,13 +1,18 @@
-<p align="center">
-  <a href="http://huecrm.com/" target="blank"><img src="https://i.postimg.cc/nVdnWHrT/hueCRM.png" width="320" alt="Nest Logo" /></a>
-</p>
-  <p align="center">Modern CRM based on NestJS framework backend, MongoDB database, Angular 9 frontend and Nebular </a>.</p>
-    <p align="center">
+<p align="center">Modern CRM based on NestJS framework backend, MongoDB database, Angular 9 frontend and Nebular </a>.</p>
+
 
 
 ## Description
 
-Online CRM project for web based business. Based on Nx workspace, Angular front-end and NestJS backend.
+Online CRM seed/starter project for web based business. Based on Nx workspace, Angular front-end and NestJS backend.
+Seeding is finished. The project contains:
+
+- JWT based authentication
+- Mongodb schemas and structure for users and leads
+- Leads module
+- Swagger documentation
+
+More advanced version of this application, but with different MIT license you will soon find under https://gitlab.com/huesoftware
 
 ## Installation
 
@@ -15,6 +20,7 @@ Online CRM project for web based business. Based on Nx workspace, Angular front-
 $ git clone https://github.com/hueSoft/hueCRM.git
 $ npm install
 $ mv .env.dev.example .env
+$ node config-env.hue-crm.ts #It will create environments.ts from .env file
 
 ```
 

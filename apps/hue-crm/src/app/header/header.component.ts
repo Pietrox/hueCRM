@@ -12,21 +12,17 @@ import { NbIconConfig, NbMenuService, NbSidebarService } from '@nebular/theme';
 
 export class HeaderComponent implements OnInit {
   disabledIconConfig: NbIconConfig = { icon: 'settings-2-outline', pack: 'eva' };
-  tokenData = undefined;
-  userObject = JSON.parse(localStorage.getItem('userData'));
   userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
-  
+  user = undefined;
   constructor(private authService: NbAuthService,
 			  private sidebarService: NbSidebarService,
 			  private menuService: NbMenuService
   ) {
-	this.authService.onTokenChange()
-	  .subscribe((token: NbAuthJWTToken) => {
-		if (token.isValid()) {
-		  this.tokenData = token.getPayload();
-		  
-		}
-	  });
+	this.authService.onTokenChange().subscribe((token: NbAuthJWTToken) => {
+	  if (token.isValid()) {
+		this.user = token.getPayload();
+	  }
+	});
   }
   
   ngOnInit() {
