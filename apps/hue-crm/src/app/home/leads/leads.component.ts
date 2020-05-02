@@ -30,7 +30,7 @@ export class LeadsComponent implements OnInit {
   ngOnInit() {
 	
 	this.spinner = false;
-	console.log(this.settings);
+  
   }
   
   setColumns() {
